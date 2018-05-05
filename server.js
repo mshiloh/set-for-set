@@ -16,6 +16,8 @@ app.use(express.static(path.join(__dirname, "client", "build")));
 
 //routes below
 // app.use("/courses", coursesRouter);
+app.use("/api/user", require ("./route/userRoute"))
+
 
 
 // route for deployment
