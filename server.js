@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const users = require ("./routes/userRoute")
 
 // import routes
 
@@ -16,7 +17,7 @@ app.use(express.static(path.join(__dirname, "client", "build")));
 
 //routes below
 // app.use("/courses", coursesRouter);
-app.use("/api/user", require ("./route/userRoute"))
+app.use("/api/user", users)
 
 
 
