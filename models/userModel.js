@@ -11,8 +11,10 @@ const UserSchema = new Schema ({
         required : true
     },
     email:{
-        type : String,
-        required : true
+        type: String,
+        required: true,
+        unique: true,
+        lowercase: true
     },
     password:{
         type: String,
@@ -21,8 +23,17 @@ const UserSchema = new Schema ({
     score:{
         type: Number,
         default: 0
+    },
+    avatar:{
+        type: String
+       
+    },
+    isAdmin:{
+        type: Boolean,
+        default: false
     }
-})
+
+}, { timestamps: true });
 
 const UserModel = mongoose.model ("user", UserSchema);
 module.exports = UserModel
