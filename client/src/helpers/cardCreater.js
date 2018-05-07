@@ -1,8 +1,5 @@
-// import axios from "axios";
-
-const createCard = () => {
+const createCards = () => {
     const cards = [];
-    //!
     let count = 0;
     
     //arrays of cards' properties
@@ -11,6 +8,7 @@ const createCard = () => {
         fillings = ["striped", "solid", "empty"],
         shapes = ["squiggle", "rhombus", "oval"];
 
+    // creating the cards' objects
     for (let i = 0; i < numbers.length; i++) {
         for (let j = 0; j < colors.length; j++) {
             for (let k = 0; k < fillings.length; k++) {
@@ -23,9 +21,6 @@ const createCard = () => {
                     card.filling = fillings[k];
                     card.shape = shapes[l];
                     cards.push(card);
-                    // axios.post(`/api/cards/`, card)
-                    //     .then(response => { })
-                    //     .catch(err => { });
                 }
             }
         }
@@ -33,4 +28,6 @@ const createCard = () => {
     return cards;
 }
 
-console.log(createCard());
+// console.log(createCards());
+
+export default createCards;
