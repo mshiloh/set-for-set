@@ -6,7 +6,7 @@ const createCards = () => {
     const numbers = [1, 2, 3],
         colors = ["red", "green", "blue"],
         fillings = ["striped", "solid", "empty"],
-        shapes = ["parallelogram", "diamond", "oval"];
+        shapes = ["squiggle", "diamond", "oval"];
 
     // creating the cards' objects
     for (let i = 0; i < numbers.length; i++) {
