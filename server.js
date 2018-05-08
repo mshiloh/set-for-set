@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 const users = require ("./routes/userRoute")
 
 // import routes
-
 const app = express();
 
 const port = process.env.PORT || 8090;
