@@ -104,6 +104,10 @@ export function login(credentials) {
                 dispatch(authenticate(user));
 
             })
+            .catch(err => {
+                dispatch(authError("login", err.response.status))
+
+            })
     }
 }
 
@@ -121,6 +125,7 @@ export function authError(key, errCode) {
         key,
         errCode
     }
+
 
 }
 export default reducer;
