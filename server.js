@@ -11,7 +11,7 @@ const app = express();
 
 //config
 const port = process.env.PORT || 8090;
-const db = process.env.MONGODB_URI || "mongodb://localhost";
+const db = process.env.MONGODB_URI || "mongodb://localhost:27017/set-for-set";
 
 //middleware
 app.use(bodyParser.json())
