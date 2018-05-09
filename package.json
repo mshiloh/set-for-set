@@ -11,8 +11,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
-    "mongoose": "^5.0.17"
+    "mongoose": "^5.0.17",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.2.0"
+  },
+  "engines": {
+    "node": "8.9.4"
   }
 }
