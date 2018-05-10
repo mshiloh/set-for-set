@@ -1,9 +1,9 @@
 const express = require("express");
-const usersRouter = express.Router();
+const userRouter = express.Router();
 const UserModel = require("../models/userModel.js");//constructor
 
 
-usersRouter.route("/")
+userRouter.route("/")
     .get((req, res) => {
         UserModel.find(req.query)
             .exec((err, foundUsers) => {
@@ -20,7 +20,7 @@ usersRouter.route("/")
         })
     })
 
-usersRouter.route("/:id")
+userRouter.route("/:id")
     .get((req, res) => {
         UserModel.findOne({ _id: req.params.id })
             .exec((err, foundUser) => {
@@ -63,4 +63,4 @@ usersRouter.route("/:id")
             })
     })
 
-module.exports = usersRouter;
+module.exports = userRouter;
