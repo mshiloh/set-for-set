@@ -1,0 +1,42 @@
+.symbol {
+    stroke-width: 20px;
+}
+
+.striped .red {
+    stroke: red;
+}
+
+.striped .green {
+    stroke: green;
+}
+
+.striped .purple {
+    stroke: purple;
+}
+
+.open .red {
+    stroke: red;
+}
+
+.open .green {
+    stroke: green;
+}
+
+.open .purple {
+    stroke: purple;
+} 
+
+.solid .red {
+    fill: red;
+    stroke: red;
+}
+
+.solid .green {
+    stroke: green;
+    fill: green;
+}
+
+.solid .purple {
+    fill: purple;
+    stroke: purple;
+}
