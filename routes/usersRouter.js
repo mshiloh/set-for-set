@@ -3,22 +3,22 @@ const usersRouter = express.Router();
 const UserModel = require("../models/userModel.js");//constructor
 
 
-usersRouter.route("/")
+usersRouter.route("/scores")
     .get((req, res) => {
         UserModel.find(req.query)
             .exec((err, foundUsers) => {
                 if (err) return res.status(400).res.send(err)
-                res.status(200).send(foundUsers);
+                res.status(200).send({ user: foundUsers.scores(), success: true })
             })
     })
 
-    .post((req, res) => {
-        const newUser = new UserModel(req.body);
-        newUser.save((err, savedUser) => {
-            if (err) return res.send(err);
-            res.status(200).send(savedUser);
-        })
-    })
+    // .post((req, res) => {
+    //     const newUser = new UserModel(req.body);
+    //     newUser.save((err, savedUser) => {
+    //         if (err) return res.send(err);
+    //         res.status(200).send(savedUser);
+    //     })
+    // })
 
 usersRouter.route("/:id")
     .get((req, res) => {
