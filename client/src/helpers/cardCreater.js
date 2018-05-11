@@ -1,12 +1,12 @@
 const createCards = () => {
     const cards = [];
     let count = 0;
-    
+
     //arrays of cards' properties
     const numbers = [1, 2, 3],
-        colors = ["green", "red", "blue"],
+        colors = ["red", "green", "blue"],
         fillings = ["striped", "solid", "empty"],
-        shapes = ["squiggle", "rhombus", "oval"];
+        shapes = ["squiggle", "diamond", "oval"];
 
     // creating the cards' objects
     for (let i = 0; i < numbers.length; i++) {
