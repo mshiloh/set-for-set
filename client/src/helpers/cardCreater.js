@@ -3,23 +3,25 @@ const createCards = () => {
     let count = 0;
 
     //arrays of cards' properties
-    const numbers = [1, 2, 3],
-        colors = ["red", "green", "blue"],
-        fillings = ["striped", "solid", "empty"],
-        shapes = ["squiggle", "diamond", "oval"];
+    const attributes = {
+        number =[1, 2, 3],
+        color =["red", "green", "blue"],
+        filling =["striped", "solid", "empty"],
+        shape =["squiggle", "diamond", "oval"]
+    }
 
     // creating the cards' objects
-    for (let i = 0; i < numbers.length; i++) {
-        for (let j = 0; j < colors.length; j++) {
-            for (let k = 0; k < fillings.length; k++) {
-                for (let l = 0; l < shapes.length; l++) {
+    for (let i = 0; i < number.length; i++) {
+        for (let j = 0; j < color.length; j++) {
+            for (let k = 0; k < filling.length; k++) {
+                for (let l = 0; l < shape.length; l++) {
                     const card = {};
                     //!
                     card.id = count++;
-                    card.number = numbers[i];
-                    card.color = colors[j];
-                    card.filling = fillings[k];
-                    card.shape = shapes[l];
+                    card.number = attributes.number[i];
+                    card.color = attributes.color[j];
+                    card.filling = attributes.filling[k];
+                    card.shape = attributes.shape[l];
                     cards.push(card);
                 }
             }

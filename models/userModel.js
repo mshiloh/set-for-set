@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
 
-const UserSchema = new Schema({
+const userSchema = new Schema({
     firstName: {
         type: String,
         required: true
@@ -62,5 +62,5 @@ userSchema.methods.withoutPassword = function () {
 
 
 
-const UserModel = mongoose.model("users", UserSchema);
+const UserModel = mongoose.model("users", userSchema);
 module.exports = UserModel;
