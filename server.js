@@ -3,6 +3,9 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const usersRouter = require ("./routes/usersRouter.js");
+const authRouter = require ("./routes/authRouter.js");
+
+require("dotenv").config();
 
 // import routes
 const app = express();
@@ -15,9 +18,9 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "client", "build")));
 
 //routes below
+app.use("/api", expressJwt({secret: process.env.SECRET}));
 app.use("/api/users", usersRouter)
-
-
+app.use("/auth", authRouter)
 
 // route for deployment
 app.get("*", (req, res) => {  

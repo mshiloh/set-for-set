@@ -29,7 +29,7 @@ usersRouter.route("/:id")
                 } else if (foundUser) {
                     res.status(200).send(foundUser)
                 } else {
-                    res.status(404).send("User Not found")
+                    res.status(404).send("404")
                 }
             })
     })
