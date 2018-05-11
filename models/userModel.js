@@ -60,13 +60,6 @@ UserSchema.methods.withoutPassword = function () {
     return user;
 }
 
-UserSchema.methods.scores = function () {
-    const user = this.toObject();
-    delete user.password;
-    delete user.email;
-    delete user.isAdmin;
-    return user;
-}
 
 
 

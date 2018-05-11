@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const expressJwt = require("express-jwt");
 const usersRouter = require ("./routes/usersRouter.js");
 const authRouter = require ("./routes/authRouter.js");
+const scoresRouter = require ("./routes/scoresRouter.js")
 
 
 require("dotenv").config();
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, "client", "build")));
 app.use("/api", expressJwt({secret: process.env.SECRET}));
 app.use("/api/users", usersRouter)
 app.use("/auth", authRouter)
+app.use("/scores", scoresRouter)
 
 // route for deployment
 app.get("*", (req, res) => {  
