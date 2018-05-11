@@ -2,10 +2,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const path = require("path");
-
+const expressJwt = require("express-jwt");
 const logger = require("./middleware/logger.js");
-const cardRouter = require("./routes/cards.js");
-const userRouter = require("./routes/users.js");
+const cardRouter = require("./routes/cardRouter.js");
+const usersRouter = require("./routes/userRouter.js");
+const authRouter = require("./routes/authRouter.js");
+
+require("dotenv").config();
 
 const app = express();
 
@@ -18,13 +21,14 @@ app.use(bodyParser.json())
 app.use(logger);
 app.use(express.static(path.join(__dirname, "client", "build")));
 
-//routes
+//routes below
+app.use("/api", expressJwt({ secret: process.env.SECRET }));
+app.use("/api/users", usersRouter)
 app.use("/api/cards", cardRouter);
-app.use("/api/users", userRouter)
-
+app.use("/auth", authRouter)
 
 // route for deployment
-app.get("*", (req, res) => {  
+app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
@@ -33,9 +37,6 @@ mongoose.connect(db, (err) => {
     if (err) console.error(err);
     console.log("Connected to MongoDB");
 });
-
-app.use("/cards", require("./routes/cards"));
-// app.use("/users", require("./routes/users"));
 
 //server
 app.listen(port, () => console.log("Server running on port: " + port));
