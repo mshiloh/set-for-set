@@ -29,9 +29,9 @@ app.use(express.static(path.join(__dirname, "client", "build")));
 
 //routes below
 app.use("/api", expressJwt({ secret: process.env.SECRET }));
-app.use("auth", authRouter)
+app.use("/auth", authRouter)
 app.use("/api/users", usersRouter)
-app.use("/api/cards", cardRouter);
+app.use("/api/setCards", cardRouter);
 
 // route for deployment
 app.get("*", (req, res) => {

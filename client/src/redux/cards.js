@@ -4,7 +4,12 @@ const initialState = {
     data: [],
     loading: true,
     errMsg: "",
-    currentIndex: 0
+    currentIndex: 0,
+    image: "",
+    color: "",
+    filling: "",
+    shape: "",
+    number: ""
 }
 
 const cardsReducer = (state = initialState, action) => {
