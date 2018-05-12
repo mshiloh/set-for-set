@@ -7,6 +7,8 @@ const logger = require("./middleware/logger.js");
 const cardRouter = require("./routes/cardRouter.js");
 const usersRouter = require("./routes/userRouter.js");
 const authRouter = require("./routes/authRouter.js");
+const scoresRouter = require ("./routes/scoresRouter.js")
+
 
 require("dotenv").config();
 
@@ -31,7 +33,11 @@ app.use(express.static(path.join(__dirname, "client", "build")));
 app.use("/api", expressJwt({ secret: process.env.SECRET }));
 app.use("/auth", authRouter)
 app.use("/api/users", usersRouter)
+
 app.use("/api/setCards", cardRouter);
+app.use("/auth", authRouter)
+app.use("/scores", scoresRouter)
+
 
 // route for deployment
 app.get("*", (req, res) => {
