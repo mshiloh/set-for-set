@@ -5,11 +5,11 @@ const bcrypt = require("bcrypt");
 const userSchema = new Schema({
     firstName: {
         type: String,
-        required: true
+        // required: true
     },
     lastName: {
         type: String,
-        required: true
+        // required: true
     },
     email: {
         type: String,
@@ -37,7 +37,7 @@ const userSchema = new Schema({
 }, { timestamps: true });
 
 
-UserSchema.pre("save", function (next) {
+userSchema.pre("save", function (next) {
     const user = this;
     if (!user.isModified("password")) return next();
     bcrypt.hash(user.password, 10, (err, hash) => {
@@ -47,14 +47,14 @@ UserSchema.pre("save", function (next) {
     });
 });
 
-UserSchema.methods.checkPassword = function (passwordAttempt, callback) {
+userSchema.methods.checkPassword = function (passwordAttempt, callback) {
     bcrypt.compare(passwordAttempt, this.password, (err, isMatch) => {
         if (err) return callback(err);
         callback(null, isMatch);
     })
 }
 
-UserSchema.methods.withoutPassword = function () {
+userSchema.methods.withoutPassword = function () {
     const user = this.toObject();
     delete user.password;
     return user;
@@ -62,5 +62,5 @@ UserSchema.methods.withoutPassword = function () {
 
 
 
-const UserModel = mongoose.model("users", UserSchema);
+const UserModel = mongoose.model("users", userSchema);
 module.exports = UserModel;
