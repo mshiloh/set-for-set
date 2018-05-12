@@ -53,7 +53,7 @@ const cardsReducer = (state = initialState, action) => {
     }
 }
 
-const setforset = "/api/cards/";
+const setforset = "/api/setCards/";
 
 export const getCards = () => {
     return dispatch => {
