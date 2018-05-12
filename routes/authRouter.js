@@ -4,7 +4,7 @@ const UserModel = require("../models/userModel.js");
 const jwt = require("jsonwebtoken");
 
 authRouter.post("/signup", (req, res) => {
-    UserModel.findOne({ username: req.body.username })
+    UserModel.findOne({ email: req.body.email })
         .exec((err, foundUser) => {
             if (err) return res.status(500).send(err);
             if (foundUser) {
@@ -20,7 +20,7 @@ authRouter.post("/signup", (req, res) => {
         })
 });
 authRouter.post("/login", (req, res) => {
-    User.findOne({ username: req.body.username.toLowerCase() }, (err, user) => {
+    UserModel.findOne({ email: req.body.email.toLowerCase() }, (err, user) => {
         if (err) return res.status(500).send(err);
         if (!user) return res.status(403).send({ success: false, message: "Invalid Username" })
         user.checkPassword(req.body.password, (err, match) => {
