@@ -59,7 +59,7 @@ userRouter.route("/:id")
                 if (err) {
                     res.status(400).send(err)
                 } else if (updatedUser) {
-                    res.status(200).send(updateUser)
+                    res.status(200).send(updatedUser)
                 } else {
                     res.status(404).send("404 -- User Not Found")
                 }

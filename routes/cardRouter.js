@@ -1,7 +1,6 @@
 const express = require("express");
 const cardRouter = express.Router();
-
-const CardModel = ("../models/cardModel.js")
+const CardModel = require("../models/cardModel.js")
 
 // GET all request
 cardRouter.route("/")
@@ -17,12 +16,9 @@ cardRouter.route("/")
         const newCard = new CardModel(req.body);
         newCard.save((err, savedCard) => {
             if (err) return res.send(err);
-            CardModel.populate(savedCard, (err, popCard) => {
-                if (err) return res.send(err);
-                res.status(201).send(popCard);
-            });
-        });
-    });
+            res.status(200).send(savedCard);
+        })
+    })
 
 // GET one request
 cardRouter.route("/:id")

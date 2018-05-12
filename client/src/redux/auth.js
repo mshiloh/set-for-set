@@ -1,14 +1,11 @@
 import axios from "axios";
 
-
-
 const profileAxios = axios.create();
 profileAxios.interceptors.request.use(config => {
     const token = localStorage.getItem("token");
     config.headers.Authorization = `Bearer ${token}`;
     return config;
 })
-
 
 const initialState = {
     firstName: '',
