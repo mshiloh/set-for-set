@@ -3,7 +3,6 @@ const userRouter = express.Router();
 const UserModel = require("../models/userModel.js");//constructor
 
 
-<<<<<<< HEAD:routes/userRouter.js
 userRouter.route("/")
     .get((req, res) => {
         UserModel.find(req.query)
@@ -20,8 +19,6 @@ userRouter.route("/")
             res.status(200).send(savedUser);
         })
     })
-=======
->>>>>>> Authentication:routes/usersRouter.js
 
 userRouter.route("/:id")
     .get((req, res) => {
