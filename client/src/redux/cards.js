@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const initialState = {
-    data: [],
     loading: true,
     errMsg: "",
     currentIndex: 0,
@@ -23,7 +22,8 @@ const cardsReducer = (state = initialState, action) => {
 
         case "NEW_CARD":
             return {
-                data: [...state.data, action.card]
+                data: [...state.data, action.card],
+                loading: false
             }
 
         case "EDIT_CARD":
@@ -61,7 +61,8 @@ export const getCards = () => {
             .then(response => {
                 dispatch({
                     type: "GET_CARDS",
-                    cards: response.data
+                    cards: response.data,
+                    loading: false
                 })
                 console.log(response.data);
             })
@@ -80,7 +81,8 @@ export const newCard = (card) => {
             .then(response => {
                 dispatch({
                     type: "NEW_CARD",
-                    card: response.data
+                    card: response.data,
+                    loading: false
                 })
             })
     }

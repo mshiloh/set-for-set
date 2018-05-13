@@ -1,0 +1,44 @@
+.rules-wrapper {
+    grid-area: cnt;
+    height: 100%;
+    background: white;
+    padding: 50px;
+}
+
+.rules-head {
+    font-size: 9vw;
+    font-weight: 900;
+    padding: 10px;
+    text-align: center;
+}
+
+.rules-subhead {
+    font-size: 3.5vw;
+    padding: 10px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.rules-section-head {
+    font-size: 2.8vw;
+    font-weight: 900px;
+    margin-top: 50px;
+    
+}
+
+.rules-text {
+    font-size: 2.3vw;
+    font-weight: 600;
+    padding-top: 30px;
+}
+
+.example-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.example-sets {
+    width: 70vw;
+    height: auto;
+}
