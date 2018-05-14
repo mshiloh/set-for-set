@@ -29,7 +29,10 @@ function Landing() {
                 </p>
 
             <div className="landing-butt-container">
-                <button className="landing-login-butt">Login</button>
+                <button className="landing-login-butt">
+                    Login
+                    
+                    </button>
                 <button className="landing-signup-butt">Sign Up</button>
             </div>
 

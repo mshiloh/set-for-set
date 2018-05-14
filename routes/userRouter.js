@@ -4,13 +4,13 @@ const UserModel = require("../models/userModel.js");//constructor
 
 
 userRouter.route("/")
-    .get((req, res) => {
-        UserModel.find(req.query)
-            .exec((err, foundUsers) => {
-                if (err) return res.status(400).res.send(err)
-                res.status(200).send(foundUsers);
-            })
-    })
+    // .get((req, res) => {
+    //     UserModel.find(req.query)
+    //         .exec((err, foundUsers) => {
+    //             if (err) return res.status(400).res.send(err)
+    //             res.status(200).send(foundUsers);
+    //         })
+    // })
 
     .post((req, res) => {
         const newUser = new UserModel(req.body);
