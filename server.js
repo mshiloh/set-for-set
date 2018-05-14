@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -8,15 +9,13 @@ const logger = require("./middleware/logger.js");
 const cardRouter = require("./routes/cardRouter.js");
 const usersRouter = require("./routes/userRouter.js");
 const authRouter = require("./routes/authRouter.js");
-const scoresRouter = require ("./routes/scoresRouter.js")
-
-require("dotenv").config();
+const scoresRouter = require("./routes/scoresRouter.js")
 
 const app = express();
 
 //config
-const port = process.env.PORT || 8090;
-const db = process.env.MONGODB_URI || "mongodb://localhost";
+const port = process.env.PORT;
+const db = process.env.MONGODB_URI;
 
 //connect to db
 mongoose.connect(db, (err) => {
