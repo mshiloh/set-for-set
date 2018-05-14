@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Cabin:400,400i,500,500i,600,600i,700,700i|Muli:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+/* @import url('https://fonts.googleapis.com/css?family=Cabin:400,400i,500,500i,600,600i,700,700i|Muli:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i'); */
 
 /*
 font-family: "Cabin", sans-serif;
@@ -11,28 +11,25 @@ font-family: "Muli", sans-serif;
     height: 100%;
     background: white;
     padding: 50px;
-    
 }
 
 .landing-rules-head {
     font-size: 9vw;
     font-weight: 900;
     text-align: center;
-font-family: "Roboto", sans-serif;
-    
+    font-family: "Roboto", sans-serif;
 }
 
 .landing-rules-subhead {
     font-size: 3.5vw;
     padding: 10px;
     text-align: center;
-font-family: "Roboto", sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 .landing-rules-section-head {
     font-size: 2.8vw;
     font-weight: 900px;
-    
 }
 
 .landing-rules-text {
@@ -41,7 +38,7 @@ font-family: "Roboto", sans-serif;
     padding-top: 15px;
 }
 
-.landing-example-container{
+.landing-example-container {
     display: flex;
     justify-content: center;
     align-items: center;
