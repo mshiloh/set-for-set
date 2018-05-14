@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { logout } from "../redux/auth";
@@ -17,7 +17,7 @@ function Nav(props) {
 
                 {isAuthenticated ? null : <div className="nav-link"><Link to="/login">Log In</Link></div>}
 
-                {isAuthenticated ? null : <div className="nav-link"><Link to="/rules">How to Play</Link></div>}
+                <div className="nav-link"><Link to="/rules">How to Play</Link></div>
 
                 {isAuthenticated ? <div className="nav-link"><Link to="/home">Home</Link></div> : null}
 

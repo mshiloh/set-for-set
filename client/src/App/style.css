@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Muli', sans-serif;
 }
 
 html {
@@ -12,7 +12,7 @@ html {
 .app-wrapper {
     height: 100vh;
     display: grid;
-    grid-template-areas: "hdr" "nav" "cnt" "ftr";
+    grid-template-areas: "hdr" "nav" "cnt" "cpy" "ftr";
     grid-template-rows: 3fr .5fr 4fr .5fr;
     background: #DFDCE3;
 }
@@ -52,14 +52,14 @@ nav {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    align-content: center;
     font-size: 2.5vw;
     width: 100vw;
+    padding: 10px;
 }
 
 .nav-wrapper {
     background: lightgray;
-    display: flex;
+    display: flex;    
 }
 
 a {
@@ -83,7 +83,14 @@ footer {
 }
 
 .copyright {
-    font-size: 1.5vw;
+    /* grid-area: cpy; */
+    /* display: flex;
+    align-items: center;
+    background: white;
+    text-align: left; */
+    padding-top: 10px;
+    font-size: 1.3vw;
+    width: 100vw;    
 }
 
 @import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext');
