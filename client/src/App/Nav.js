@@ -17,16 +17,16 @@ function Nav(props) {
 
                 {isAuthenticated ? null : <div className="nav-link"><Link to="/login">Log In</Link></div>}
 
-                <div className="nav-link"><Link to="/rules">How to Play</Link></div>
 
                 {isAuthenticated ? <div className="nav-link"><Link to="/home">Home</Link></div> : null}
 
                 {isAuthenticated ? <div className="nav-link"><Link to="/game">Game</Link></div> : null}
 
-                {isAuthenticated ? <div className="nav-link"><button onClick={props.logout}>Log Out</button></div> : null}
+                <div className="nav-link"><Link to="/rules/">How to Play</Link></div>
+                {isAuthenticated ? <div className="nav-link"><button onClick={props.logout}><Link to="/login"></Link>Log Out</button></div> : null}
             </nav>
         </div>
     )
 }
 
-export default connect(state => state.user, {logout})(Nav);  
+export default connect(state => state.user, { logout })(Nav);  
