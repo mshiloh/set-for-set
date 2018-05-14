@@ -1,0 +1,40 @@
+.signup-form-wrapper {
+    display: flex;
+}
+
+.signup-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100vw;
+}
+
+.signup-head {
+    font-size: 6vw;
+    margin: 20px;    
+}
+
+.signup-form-input {
+    width: 70vw;
+    font-size: 3vw;
+    padding: 5px;
+    margin: 10px;
+}
+
+.signup-butt {
+    font-size: 3vw;
+    margin: 10px;
+    padding: 10px;    
+}
+
+.already-account, .signup-login {
+    font-size: 3vw;
+    padding: 5px;
+    margin: 20px;
+}
+
+.signup-login:hover {
+    cursor: pointer;
+}

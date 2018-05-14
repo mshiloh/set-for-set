@@ -1,16 +1,15 @@
 import axios from "axios";
 
-const profileAxios = axios.create();
-profileAxios.interceptors.request.use(config => {
+const homeAxios = axios.create();
+homeAxios.interceptors.request.use(config => {
     const token = localStorage.getItem("token");
     config.headers.Authorization = `Bearer ${token}`;
     return config;
 })
 
 const initialState = {
-    firstName: '',
-    lastName: '',
     loading: true,
+    name: '',
     email: "",
     score: "",
     avatar: "",
@@ -22,13 +21,14 @@ const initialState = {
     }
 }
 
-function reducer(state = initialState, action) {
+export default function reducer(state = initialState, action) {
     switch (action.type) {
-        case "STOP_LOADING":
+        case "STOP_LOADING": {
             return {
                 ...state,
                 loading: false
             }
+        }
         case "AUTH_ERROR":
             return {
                 ...state,
@@ -38,6 +38,7 @@ function reducer(state = initialState, action) {
                 },
                 loading: false
             }
+
         case "AUTHENTICATE":
             return {
                 ...state,
@@ -47,16 +48,14 @@ function reducer(state = initialState, action) {
                 loading: false
 
             }
+
         case "LOGOUT":
             return {
                 ...initialState,
                 loading: false
             }
         default:
-            return {
-                state,
-                loading: false
-            }
+            return state
     }
 }
 
@@ -66,20 +65,28 @@ function authenticate(user) {
         user
     }
 }
+
 export function verify() {
     return dispatch => {
-        profileAxios.get("/api/profile")
+        homeAxios.get("/api/home")
             .then(response => {
                 const { user } = response.data;
                 dispatch(authenticate(user));
             })
+            .catch(err => {
+                dispatch({
+                    type: "STOP_LOADING"
+                })
+                console.error(err);
+            })
     }
 }
+
 export function signup(userInfo) {
     return dispatch => {
         axios.post("/auth/signup", userInfo)
             .then(response => {
-                const { token, user } = response.data
+                const { token, user } = response.data;
                 localStorage.setItem("token", token);
                 localStorage.setItem("user", JSON.stringify(user));
                 dispatch(authenticate(user));
@@ -87,10 +94,12 @@ export function signup(userInfo) {
             })
             .catch(err => {
                 dispatch(authError("signup", err.response.status))
+                console.error(err);
             })
 
     }
 }
+
 export function login(credentials) {
     return dispatch => {
         axios.post("/auth/login", credentials)
@@ -99,11 +108,11 @@ export function login(credentials) {
                 localStorage.setItem("token", token);
                 localStorage.setItem("user", JSON.stringify(user));
                 dispatch(authenticate(user));
-
+                console.log(response.data)
             })
             .catch(err => {
                 dispatch(authError("login", err.response.status))
-
+                console.error(err);
             })
     }
 }
@@ -125,4 +134,3 @@ export function authError(key, errCode) {
 
 
 }
-export default reducer;
