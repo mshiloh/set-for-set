@@ -1,14 +1,26 @@
 import axios from "axios";
 
+const cardsAxios = axios.create();
+
+const setforset = "/api/setCards/";
+
+cardsAxios.interceptors.request.use(config => {
+    const token = localStorage.getItem("token");
+    console.log(token);
+    config.headers.Authorization = `Bearer ${token}`;
+    return config;
+})
+
 const initialState = {
     loading: true,
     errMsg: "",
-    currentIndex: 0,
-    image: "",
-    color: "",
-    filling: "",
-    shape: "",
-    number: ""
+    // currentIndex: 0,
+    data: [],
+    // image: "",
+    // color: "",
+    // filling: "",
+    // shape: "",
+    // number: ""
 }
 
 const cardsReducer = (state = initialState, action) => {
@@ -16,7 +28,7 @@ const cardsReducer = (state = initialState, action) => {
         case "GET_CARDS":
             return {
                 ...state,
-                data: action.cards,
+                data: [...action.cards],
                 loading: false
             }
 
@@ -53,11 +65,9 @@ const cardsReducer = (state = initialState, action) => {
     }
 }
 
-const setforset = "/api/setCards/";
-
 export const getCards = () => {
     return dispatch => {
-        axios.get(`${setforset}`)
+        cardsAxios.get(`${setforset}`)
             .then(response => {
                 dispatch({
                     type: "GET_CARDS",
@@ -77,7 +87,7 @@ export const getCards = () => {
 
 export const newCard = (card) => {
     return dispatch => {
-        axios.post(setforset, {...card})
+        cardsAxios.post(setforset, {...card})
             .then(response => {
                 dispatch({
                     type: "NEW_CARD",
@@ -90,7 +100,7 @@ export const newCard = (card) => {
 
 export const editCard = (id, updatedCard) => {
     return dispatch => {
-        axios.put(setforset + id, updatedCard)
+        cardsAxios.put(setforset + id, updatedCard)
             .then(response => {
                 dispatch({
                     type: "EDIT_CARD",
@@ -111,7 +121,7 @@ export const editCard = (id, updatedCard) => {
 
 export const removeCard = id => {
     return dispatch => {
-        axios.delete(setforset + id)
+        cardsAxios.delete(setforset + id)
             .then(response => {
                 dispatch({
                     type: "REMOVE_CARD",

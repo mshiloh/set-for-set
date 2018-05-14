@@ -1,5 +1,7 @@
 import React from "react";
 
+import GamePlay from "../GamePlay";
+
 import "./style.css";
 
 function Game() {
@@ -54,6 +56,9 @@ function Game() {
                     </div>
                 
                 </div>
+
+                <GamePlay/>
+
             </div>
 
     )
