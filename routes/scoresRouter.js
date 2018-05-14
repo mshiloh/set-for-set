@@ -12,6 +12,4 @@ scoresRouter.route("/")
                 res.status(200).send({ user: foundUsers, success: true })
             })})
 
-
-
 module.exports = scoresRouter;
