@@ -17,12 +17,6 @@ const app = express();
 const port = process.env.PORT;
 const db = process.env.MONGODB_URI;
 
-//connect to db
-mongoose.connect(db, (err) => {
-    if (err) console.error(err);
-    console.log("Connected to MongoDB");
-});
-
 //middleware
 app.use(bodyParser.json())
 app.use(logger);
@@ -40,6 +34,12 @@ app.use("/auth", authRouter);
 // route for deployment
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
+//connect to db
+mongoose.connect(db, (err) => {
+    if (err) console.error(err);
+    console.log("Connected to MongoDB");
 });
 
 //server
