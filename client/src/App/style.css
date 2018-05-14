@@ -1,7 +1,9 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    font-family: 'Muli', sans-serif;
+    /* font-family: 'Muli', sans-serif; */
+    font-family: 'Nunito', sans-serif;
+    
 }
 
 html {
@@ -14,7 +16,7 @@ html {
     display: grid;
     grid-template-areas: "hdr" "nav" "cnt" "cpy" "ftr";
     grid-template-rows: 3fr .5fr 4fr .5fr;
-    background: #DFDCE3;
+    background: white;
 }
 
 .header-wrapper {

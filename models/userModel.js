@@ -5,17 +5,17 @@ const bcrypt = require("bcrypt");
 const userSchema = new Schema({
     name: {
         type: String,
-        // required: true
+        required: true
     },
     email: {
         type: String,
-        // required: true,
+        required: true,
         unique: true,
         lowercase: true
     },
     password: {
         type: String,
-        // required: true
+        required: true
     },
     bestScore: {
         type: Number,
@@ -55,8 +55,6 @@ userSchema.methods.withoutPassword = function () {
     delete user.password;
     return user;
 }
-
-
 
 const UserModel = mongoose.model("users", userSchema);
 module.exports = UserModel;

@@ -39,7 +39,7 @@ class App extends Component {
 
                             <Route path="/login" render={props => isAuthenticated ? <Redirect to="/home" /> : <Login {...props} />} />
 
-                            <Route path="/rules" render={props => isAuthenticated ? <Redirect to="/rules/" /> : <Rules {...props} />} />
+                            <Route path="/rules" component={Rules}/>
 
                             <ProtectedRoute path="/home" component={Home} />
 
