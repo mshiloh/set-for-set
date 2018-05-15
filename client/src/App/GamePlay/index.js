@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import {getCards} from "../../redux/cards";
 
 import GameComponent from "./GameComponent";
-
+import Timer from "./Timer";
 class GamePlay extends Component {
     componentDidMount(){
         this.props.getCards();
