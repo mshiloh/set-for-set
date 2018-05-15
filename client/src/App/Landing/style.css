@@ -11,20 +11,22 @@ font-family: "Muli", sans-serif;
     height: 100%;
     background: white;
     padding: 50px;
+    font-family: 'Nunito', sans-serif;
 }
 
 .landing-rules-head {
     font-size: 9vw;
     font-weight: 900;
     text-align: center;
-    font-family: "Roboto", sans-serif;
+    /* font-family: "Roboto", sans-serif; */
+
 }
 
 .landing-rules-subhead {
     font-size: 3.5vw;
     padding: 10px;
     text-align: center;
-    font-family: "Roboto", sans-serif;
+    /* font-family: "Roboto", sans-serif; */
 }
 
 .landing-rules-section-head {

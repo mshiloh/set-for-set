@@ -5,7 +5,7 @@ export default class GameComponent extends Component {
         const {image} = this.props;
         return (
             <div>
-                {/* <img src={image} alt=""/> */}
+                <img src={image} alt=""/>
             </div>
         )
     }

@@ -2,7 +2,7 @@ import axios from "axios";
 
 const cardsAxios = axios.create();
 
-const setforset = "/api/setCards/";
+const setForSet = "/api/setCards/";
 
 cardsAxios.interceptors.request.use(config => {
     const token = localStorage.getItem("token");
@@ -67,7 +67,7 @@ const cardsReducer = (state = initialState, action) => {
 
 export const getCards = () => {
     return dispatch => {
-        cardsAxios.get(`${setforset}`)
+        cardsAxios.get(`${setForSet}`)
             .then(response => {
                 dispatch({
                     type: "GET_CARDS",
@@ -87,7 +87,7 @@ export const getCards = () => {
 
 export const newCard = (card) => {
     return dispatch => {
-        cardsAxios.post(setforset, {...card})
+        cardsAxios.post(setForSet, {...card})
             .then(response => {
                 dispatch({
                     type: "NEW_CARD",
@@ -100,7 +100,7 @@ export const newCard = (card) => {
 
 export const editCard = (id, updatedCard) => {
     return dispatch => {
-        cardsAxios.put(setforset + id, updatedCard)
+        cardsAxios.put(setForSet + id, updatedCard)
             .then(response => {
                 dispatch({
                     type: "EDIT_CARD",
@@ -121,7 +121,7 @@ export const editCard = (id, updatedCard) => {
 
 export const removeCard = id => {
     return dispatch => {
-        cardsAxios.delete(setforset + id)
+        cardsAxios.delete(setForSet + id)
             .then(response => {
                 dispatch({
                     type: "REMOVE_CARD",
