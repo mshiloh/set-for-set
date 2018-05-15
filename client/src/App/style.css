@@ -3,20 +3,18 @@
     margin: 0;
     /* font-family: 'Muli', sans-serif; */
     font-family: 'Nunito', sans-serif;
-    
 }
 
-html {
-    position: relative;
+body {
     width: 100vw;    
 }
 
 .app-wrapper {
-    height: 100vh;
     display: grid;
     grid-template-areas: "hdr" "nav" "cnt" "cpy" "ftr";
     grid-template-rows: 3fr .5fr 4fr .5fr;
     background: white;
+    height: 100vh;
 }
 
 .header-wrapper {
@@ -24,15 +22,13 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-image: url("https://i.imgur.com/dIeV66v.jpg"); */
-    /* background-image: url("https://i.imgur.com/5lscjyz.jpg"); */
     background: white;
     background-image: url("https://i.imgur.com/WSVqaSa.jpg");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    min-height: 200px;
     width: 100vw;
-    min-height: 500px;
 }
 
 .header-container {
@@ -40,8 +36,6 @@ html {
     justify-content: center;
     align-items: center;
     align-content: center;
-    width: 100vw;
-    padding: 5px;
     font-size: 8vw;
 }
 
@@ -54,17 +48,17 @@ nav {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    font-size: 2.5vw;
-    width: 100vw;
     padding: 10px;
+    height: 100%;
+    font-size: 3.5vw;
 }
 
 .nav-wrapper {
     background: lightgray;
-    display: flex;    
 }
 
 a {
+    color: black;
     text-decoration: none;
 }
 
@@ -74,7 +68,7 @@ footer {
     align-content: center;
     bottom: 0;
     padding: 1.5vw;
-    font-size: 2vw;
+    font-size: 2.5vw;
 }
 
 .footer-wrapper {
@@ -85,13 +79,8 @@ footer {
 }
 
 .copyright {
-    /* grid-area: cpy; */
-    /* display: flex;
-    align-items: center;
-    background: white;
-    text-align: left; */
-    padding-top: 10px;
-    font-size: 1.3vw;
+    padding-top: 5px;
+    font-size: 1.5vw;
     width: 100vw;    
 }
 
