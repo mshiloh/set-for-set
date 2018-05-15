@@ -13,28 +13,109 @@
 
 .login-head {
     font-size: 6vw;
-    margin: 20px;    
+    margin: .7vh;
 }
 
 .login-form-input {
-    width: 70vw;
-    font-size: 3vw;
+    width: 80vw;
     padding: 5px;
-    margin: 10px;
+    margin: .6vh;
+    font-size: 3vw;
 }
 
 .login-butt {
-    font-size: 3vw;
-    margin: 10px;
-    padding: 10px;    
+    margin: .5vh;
+    padding: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 3.3vw;
 }
 
-.no-account, .login-signup {
-    font-size: 3vw;
+.no-account,
+.login-signup {
     padding: 5px;
-    margin: 20px;
+    margin: .2vh;
+    font-size: 3.3vw;
 }
 
 .login-login:hover {
     cursor: pointer;
+}
+
+/* Medium Devices, Desktops */
+
+@media only screen and (min-width: 992px) {
+    .login-head {
+        margin: 20px;
+        font-size: 5vw;
+    }
+    .login-form-input {
+        width: 70vw;
+        padding: 5px;
+        margin: 10px;
+        font-size: 2vw;
+    }
+    .login-butt {
+        padding: 10px;
+        font-size: 2.2vw;
+    }
+    .no-account,
+    .login-signup {
+        padding: 5px;
+        margin: 5px;
+        font-size: 2.5vw;
+    }
+}
+
+/* Large Devices, Wide Screens */
+
+@media only screen and (min-width: 1200px) {
+    .login-head {
+        margin: 15px;
+        font-size: 4vw;
+    }
+    .login-form-input {
+        width: 70vw;
+        padding: 5px;
+        margin: 10px;
+        font-size: 1.5vw;
+    }
+    .login-butt {
+        padding: 10px;
+        font-size: 1.6vw;
+    }
+    .no-account,
+    .login-signup {
+        padding: 5px;
+        margin: 5px;
+        font-size: 1.9vw;
+    }
+}
+
+/* Extra-Large Devices & Wide Screens */
+
+@media only screen and (min-width: 1500px) {
+    .login-form-wrapper {
+        margin-bottom: 20px;
+    }
+    .login-head {
+        margin: 15px;
+        font-size: 2.8vw;
+    }
+    .login-form-input {
+        width: 70vw;
+        padding: 5px;
+        margin: 10px;
+        font-size: 1vw;
+    }
+    .login-butt {
+        padding: 10px;
+        font-size: 1.3vw;
+    }
+    .no-account,
+    .login-signup {
+        padding: 5px;
+        margin: 5px;
+        font-size: 1.5vw;
+    }
 }

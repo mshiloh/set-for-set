@@ -1,84 +1,291 @@
-/* @import url('https://fonts.googleapis.com/css?family=Cabin:400,400i,500,500i,600,600i,700,700i|Muli:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i'); */
+    .landing-wrapper {
+        grid-area: cnt;
+        background: white;
+        width: 100vw;
+    }
+    .landing-rules-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 100vw;
+    }
+    .landing-rules-head {
+        font-family: "Roboto", sans-serif;
+        font-weight: 900;
+        font-size: 9vw;
+    }
+    .landing-rules-subhead {
+        padding: 10px;
+        font-family: "Roboto", sans-serif;
+        font-size: 3.5vw;
+    }
+    .landing-rules-text {
+        text-align: center;
+        padding: 5px;
+        padding-bottom: 10px;
+        font-weight: 600;
+        font-size: 3.5vw;
+    }
+    .landing-rules-info {
+        text-align: center;
+        font-weight: 600;
+        font-size: 3.5vw;
+    }
+    .landing-example-container {
+        display: flex;
+        align-items: center;
+    }
+    .landing-example-sets {
+        height: auto;
+        width: 70vw;
+    }
+    .landing-prompt {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8px;
+        font-weight: 700;
+        font-size: 6vw;
+    }
+    .landing-butt-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .landing-login-butt,
+    .landing-signup-butt {
+        cursor: pointer;
+        text-align: center;
+        padding: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
+        border-radius: 10px;
+        font-size: 4vw;
+    }
+    .landing-login-butt {
+        margin-right: 3vw;
+    }
+    .landing-signup-butt {
+        margin-left: 3vw;
+    }
 
-/*
-font-family: "Cabin", sans-serif;
-font-family: "Roboto", sans-serif;
-font-family: "Muli", sans-serif;
-*/
+/* Extra Small Devices, Phones */
 
-.landing-landing-rules-wrapper {
-    grid-area: cnt;
-    height: 100%;
-    background: white;
-    padding: 50px;
+@media only screen and (min-width: 600px) {
+    .landing-rules-wrapper {
+        padding-top: 20px;
+        padding-bottom: 50px;
+        width: 100vw;
+    }
+    .landing-rules-head {
+        font-weight: 900;
+        font-size: 9vw;
+    }
+    .landing-rules-subhead {
+        padding-bottom: 20px;
+        font-size: 3.5vw;
+    }
+    .landing-rules-text {
+        padding: 5px;
+        padding-bottom: 20px;
+        font-weight: 600;
+        font-size: 3.2vw;
+    }
+    .landing-rules-info {
+        padding-bottom: 20px;
+        font-weight: 600;
+        font-size: 3.2vw;
+    }
+    .landing-example-sets {
+        width: 70vw;
+    }
+    .landing-prompt {
+        padding: 8px;
+        padding-top: 15px;
+        font-weight: 700;
+        font-size: 5vw;
+    }
+    .landing-login-butt,
+    .landing-signup-butt {
+        padding: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
+        border-radius: 10px;
+        font-size: 4vw;
+    }
+    .landing-login-butt {
+        margin-right: 3vw;
+    }
+    .landing-signup-butt {
+        margin-left: 3vw;
+    }
 }
 
-.landing-rules-head {
-    font-size: 9vw;
-    font-weight: 900;
-    text-align: center;
-    font-family: "Roboto", sans-serif;
+/* Small Devices, Tablets */
+
+@media only screen and (min-width: 768px) {
+    .landing-rules-wrapper {
+        padding-top: 20px;
+        padding-bottom: 70px;
+    }
+    .landing-rules-head {
+        font-weight: 900;
+        font-size: 8vw;
+    }
+    .landing-rules-subhead {
+        padding-bottom: 20px;
+        font-size: 3vw;
+    }
+    .landing-rules-text {
+        padding: 5px;
+        padding-bottom: 20px;
+        font-weight: 600;
+        font-size: 2.8vw;
+    }
+    .landing-rules-info {
+        margin-left: 6vw;
+        margin-right: 6vw;
+        padding-bottom: 20px;
+        font-weight: 600;
+        font-size: 2.8vw;
+    }
+    .landing-example-sets {
+        width: 60vw;
+    }
+    .landing-prompt {
+        padding: 8px;
+        padding-top: 20px;
+        padding-bottom: 25px;
+        font-weight: 700;
+        font-size: 5vw;
+    }
+    .landing-login-butt,
+    .landing-signup-butt {
+        padding: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
+        border-radius: 10px;
+        font-size: 4.5vw;
+    }
+    .landing-login-butt {
+        margin-right: 3vw;
+    }
+    .landing-signup-butt {
+        margin-left: 3vw;
+    }
 }
 
-.landing-rules-subhead {
-    font-size: 3.5vw;
-    padding: 10px;
-    text-align: center;
-    font-family: "Roboto", sans-serif;
+/* Medium Devices, Desktops */
+
+@media only screen and (min-width: 992px) {
+    .landing-rules-wrapper {
+        padding-top: 30px;
+        padding-bottom: 70px;
+    }
+    .landing-rules-head {
+        font-weight: 900;
+        font-size: 6vw;
+    }
+    .landing-rules-subhead {
+        padding-bottom: 20px;
+        font-size: 2.5vw;
+    }
+    .landing-rules-text {
+        padding: 5px;
+        padding-bottom: 20px;
+        font-weight: 600;
+        font-size: 2vw;
+    }
+    .landing-rules-info {
+        margin-left: 12.5vw;
+        margin-right: 12.5vw;
+        padding-bottom: 20px;
+        font-weight: 600;
+        font-size: 2vw;
+    }
+    .landing-example-sets {
+        width: 50vw;
+    }
+    .landing-prompt {
+        padding: 8px;
+        padding-top: 20px;
+        padding-bottom: 25px;
+        font-weight: 700;
+        font-size: 5vw;
+    }
+    .landing-login-butt,
+    .landing-signup-butt {
+        padding: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
+        border-radius: 10px;
+        font-size: 3.5vw;
+    }
+    .landing-login-butt {
+        margin-right: 3vw;
+    }
+    .landing-signup-butt {
+        margin-left: 3vw;
+    }
 }
 
-.landing-rules-section-head {
-    font-size: 2.8vw;
-    font-weight: 900px;
+/* Large Devices, Wide Screens */
+
+@media only screen and (min-width: 1200px) {
+    .landing-rules-wrapper {
+        padding-top: 30px;
+        padding-bottom: 70px;
+    }
+    .landing-rules-head {
+        font-weight: 900;
+        font-size: 4.5vw;
+    }
+    .landing-rules-subhead {
+        padding-bottom: 20px;
+        font-size: 2vw;
+    }
+    .landing-rules-text {
+        padding: 5px;
+        padding-bottom: 20px;
+        font-weight: 600;
+        font-size: 1.5vw;
+    }
+    .landing-rules-info {
+        margin-left: 16vw;
+        margin-right: 16vw;
+        padding-bottom: 20px;
+        font-weight: 600;
+        font-size: 1.5vw;
+    }
+    .landing-example-sets {
+        width: 40vw;
+    }
+    .landing-prompt {
+        padding: 8px;
+        padding-top: 20px;
+        padding-bottom: 25px;
+        font-weight: 700;
+        font-size: 3.5vw;
+    }
+    .landing-login-butt,
+    .landing-signup-butt {
+        padding: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
+        border-radius: 10px;
+        font-size: 3vw;
+    }
+    .landing-login-butt {
+        margin-right: 3vw;
+    }
+    .landing-signup-butt {
+        margin-left: 3vw;
+    }
 }
 
-.landing-rules-text {
-    font-size: 2.3vw;
-    font-weight: 600;
-    padding-top: 15px;
-}
+/* Extra-Large Devices & Wide Screens */
 
-.landing-example-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.landing-example-sets {
-    width: 70vw;
-    height: auto;
-}
-
-.landing-prompt {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    font-weight: 700;
-    font-size: 6vw;
-}
-
-.landing-butt-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.landing-login-butt,
-.landing-signup-butt {
-    cursor: pointer;
-    padding: 20px;
-    margin-bottom: 50px;
-    border-radius: 10px;
-    font-size: 6vw;
-}
-
-.landing-login-butt {
-    margin-right: 3vw;
-}
-
-.landing-signup-butt {
-    margin-left: 3vw;
-}
+@media only screen and (min-width: 1500px) {}
