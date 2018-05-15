@@ -1,44 +1,176 @@
 .rules-wrapper {
     grid-area: cnt;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 100%;
     background: white;
     padding: 50px;
+    width: 100vw;
 }
 
 .rules-head {
-    font-size: 9vw;
     font-weight: 900;
     padding: 10px;
     text-align: center;
+    font-size: 9vw;
 }
 
 .rules-subhead {
-    font-size: 3.5vw;
     padding: 10px;
     text-align: center;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
+    font-size: 3.5vw;
 }
 
 .rules-section-head {
-    font-size: 2.8vw;
     font-weight: 900px;
-    margin-top: 50px;
-    
+    margin-top: 4vw;
+    font-size: 2.8vw;
 }
 
 .rules-text {
-    font-size: 2.3vw;
     font-weight: 600;
-    padding-top: 30px;
+    margin-bottom: 3vw;
 }
 
-.example-container{
+.example-container {
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
 .example-sets {
-    width: 70vw;
+    margin-bottom: .5vw;
     height: auto;
+    width: 70vw;
+}
+
+/* Small Devices, Tablets */
+
+@media only screen and (min-width: 768px) {
+    .rules-wrapper {
+        padding: 20px;
+        padding-left: 70px;
+        padding-right: 70px;
+    }
+    .rules-head {
+        padding: 5px;
+        font-size: 6vw;
+    }
+    .rules-subhead {
+        padding: 10px;
+        padding-bottom: 10px;
+        font-size: 3vw;
+    }
+    .rules-section-head {
+        margin-top: 4vw;
+        font-size: 2.5vw;
+    }
+    .rules-text {
+        margin-bottom: 5px;
+        font-size: 2vw;
+    }
+    .example-sets {
+        margin-bottom: 5px;
+        width: 60vw;
+        height: auto;
+    }
+}
+
+/* Medium Devices, Desktops */
+
+@media only screen and (min-width: 992px) {
+    .rules-wrapper {
+        padding: 20px;
+        padding-left: 70px;
+        padding-right: 70px;
+    }
+    .rules-head {
+        padding: 2px;
+        font-size: 5vw;
+    }
+    .rules-subhead {
+        padding: 0;
+        padding-bottom: 10px;
+        font-size: 2.6vw;
+    }
+    .rules-section-head {
+        font-size: 2.2vw;
+        margin-top: 30px;
+    }
+    .rules-text {
+        padding-top:0;
+        margin-bottom: 15px;
+        font-size: 1.8vw;
+    }
+    .example-sets {
+        width: 50vw;
+        height: auto;
+    }
+}
+
+/* Large Devices, Wide Screens */
+
+@media only screen and (min-width: 1200px) {
+    .rules-wrapper {
+        padding: 20px;
+        padding-left: 15vw;
+        padding-right: 15vw;
+    }
+    .rules-head {
+        padding: 2px;
+        font-size: 4vw;
+    }
+    .rules-subhead {
+        padding: 0;
+        padding-bottom: 10px;
+        font-size: 2vw;
+    }
+    .rules-section-head {
+        font-size: 1.5vw;
+        margin-top: 15px;
+    }
+    .rules-text {
+        padding-top:0;
+        margin-bottom: 15px;
+        font-size: 1.3vw;
+    }
+    .example-sets {
+        margin-bottom: 10px;
+        width: 45vw;
+        height: auto;
+    }
+}
+
+/* Extra-Large Devices & Wide Screens */
+
+@media only screen and (min-width: 1500px) {
+    .rules-wrapper {
+        padding: 20px;
+        padding-left: 20vw;
+        padding-right: 20vw;
+    }
+    .rules-head {
+        padding: 2px;
+        font-size: 3vw;
+    }
+    .rules-subhead {
+        padding: 0;
+        padding-bottom: 10px;
+        font-size: 1.5vw;
+    }
+    .rules-section-head {
+        font-size: 1.2vw;
+        margin-top: 15px;
+    }
+    .rules-text {
+        padding-top:0;
+        margin-bottom: 15px;
+        font-size: 1vw;
+    }
+    
+    .example-sets {
+        margin-bottom: 10px;
+        width: 35vw;
+    }
 }
