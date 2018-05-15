@@ -43,6 +43,8 @@ class App extends Component {
 
                             <ProtectedRoute path="/home" component={Home} />
 
+                            
+
                             {/* <ProtectedRoute path="/game" component={Game} /> */}
                             <Route path="/game" component={Game} />
                         </Switch>

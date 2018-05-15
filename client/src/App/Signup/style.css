@@ -13,7 +13,8 @@
 
 .signup-head {
     font-size: 6vw;
-    margin: 20px;    
+    margin: 20px;
+    padding-top: 15px;    
 }
 
 .signup-form-input {

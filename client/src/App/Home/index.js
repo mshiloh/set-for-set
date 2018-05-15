@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import {connect} from "react-redux";
 import axios from "axios";
 const scoresAxios = axios.create();
 
@@ -24,7 +25,7 @@ class Home extends React.Component {
     componentDidMount = () => {
         scoresAxios.get(`/api/scores/`)
             .then(response => {
-                console.log(response.data);
+                // console.log(response.data);
                 const { data } = response;
                 this.setState({
                     scores: data.user,
@@ -40,6 +41,7 @@ class Home extends React.Component {
 
 
     render = () => {
+        // console.log(this.props);
         const { scores, errMsg, loading } = this.state;
         const presentScores = scores.sort((scoreOne, scoreTwo) =>
             scoreOne.bestScore < scoreTwo.bestScore).map((player, i) =>
@@ -63,7 +65,7 @@ class Home extends React.Component {
         } else {
             return (
                 <div>
-                    <div>
+                    <div className="welcome">
                         <h2>Welcome, &nbsp; @<i>{this.props.name}</i>!</h2>
                     </div>
                     <div className="socresWrap">
@@ -76,4 +78,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home;  
+export default connect(state => state.user, {})(Home);

@@ -90,7 +90,7 @@ export function signup(userInfo) {
                 localStorage.setItem("token", token);
                 localStorage.setItem("user", JSON.stringify(user));
                 dispatch(authenticate(user));
-                console.log(response.data)
+                // console.log(response.data)
             })
             .catch(err => {
                 dispatch(authError("signup", err.response.status))
@@ -108,7 +108,7 @@ export function login(credentials) {
                 localStorage.setItem("token", token);
                 localStorage.setItem("user", JSON.stringify(user));
                 dispatch(authenticate(user));
-                console.log(response.data)
+                // console.log(response.data)
             })
             .catch(err => {
                 dispatch(authError("login", err.response.status))
