@@ -20,9 +20,9 @@ function Nav(props) {
 
                 {isAuthenticated ? <div className="nav-link"><Link to="/home">Home</Link></div> : null}
 
-                {/* {isAuthenticated ? <div className="nav-link"><Link to="/game">Game</Link></div> : null} */}
+                {isAuthenticated ? <div className="nav-link"><Link to="/game">Game</Link></div> : null}
 
-               <div className="nav-link"><Link to="/game">Game</Link></div>
+               {/* <div className="nav-link"><Link to="/game">Game</Link></div> */}
 
                 <div className="nav-link"><Link to="/rules/">How to Play</Link></div>
                 {isAuthenticated ? <div className="nav-link"><button  className="logout" onClick={props.logout}><Link to="/login" ></Link>Log Out</button></div> : null}

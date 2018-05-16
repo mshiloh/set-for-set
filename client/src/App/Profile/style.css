@@ -14,7 +14,7 @@
 .signup-head {
     font-size: 6vw;
     margin: 20px;
-    padding-top: 15px;    
+    padding-top: 15px;
 }
 
 .signup-form-input {
@@ -27,10 +27,11 @@
 .signup-butt {
     font-size: 3vw;
     margin: 10px;
-    padding: 10px;    
+    padding: 10px;
 }
 
-.already-account, .signup-login {
+.already-account,
+.signup-login {
     font-size: 3vw;
     padding: 5px;
     margin: 20px;
@@ -41,5 +42,5 @@
 }
 
 img {
-    max-width: 150px;
+    max-width: 170px;
 }

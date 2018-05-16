@@ -13,42 +13,6 @@ userRouter.route("/verify")
             })
     })
 
-    //this is done by the AUTH POST request in authRouter
-    // .post((req, res) => {
-    //     const newUser = new UserModel(req.body);
-    //     newUser.save((err, savedUser) => {
-    //         if (err) return res.send(err);
-    //         res.status(200).send(savedUser);
-    //     })
-    // })
-
-    // userRouter.route("/:id")
-    //     .get((req, res) => {
-    //         UserModel.findOne({ _id: req.params.id })
-    //             .exec((err, foundUser) => {
-    //                 if (err) {
-    //                     res.status(400).send(err)
-    //                 } else if (foundUser) {
-    //                     res.status(200).send(foundUser)
-    //                 } else {
-    //                     res.status(404).send("404")
-    //                 }
-    //             })
-    //     })
-
-    .delete((req, res) => {
-        UserModel.findOneAndRemove({ _id: req.params.id })
-            .exec((err, deletedUser) => {
-                if (err) {
-                    res.status(400).send(err)
-                } else if (deletedUser) {
-                    res.status(204).send()
-                } else {
-                    res.status(404).send("404 --- User Not Found")
-                }
-            })
-    })
-
 userRouter.route("/edit-profile")
     .put((req, res) => {
         UserModel.findOne({ email: req.body.email, _id: { $ne: req.user._id } }, (err, existingUser) => {
@@ -71,9 +35,30 @@ userRouter.route("/change-password")
             } else {
                 user.password = req.body.password;
                 user.save(function (err, user) {
-                    res.send({success: true, user: user.withoutPassword()});
+                    res.send({ success: true, user: user.withoutPassword() });
                 });
             }
+        });
+    })
+
+userRouter.route("/delete-user")
+    // .delete((req, res) => {
+    //     UserModel.findOneAndRemove({ _id: req.params.id })
+    //         .exec((err, deletedUser) => {
+    //             if (err) {
+    //                 res.status(400).send(err)
+    //             } else if (deletedUser) {
+    //                 res.status(204).send()
+    //             } else {
+    //                 res.status(404).send("404 --- User Not Found")
+    //             }
+    //         })
+    // })
+    .delete((req, res) => {
+        UserModel.findOneAndRemove({ _id: req.user._id }, (err, deletedUser) => {
+            if (err) res.status(500).send(err);
+            if (!deletedUser) res.status(404).send({ message: "User not found" })
+            res.status(200).send({ message: `User with id: ${req.user._id} was successfully deleted!` });
         });
     })
 

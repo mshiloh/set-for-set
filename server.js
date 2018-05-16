@@ -7,7 +7,7 @@ const expressJwt = require("express-jwt");
 const logger = require("./middleware/logger.js");
 
 const cardRouter = require("./routes/cardRouter.js");
-const usersRouter = require("./routes/userRouter.js");
+const userRouter = require("./routes/userRouter.js");
 const authRouter = require("./routes/authRouter.js");
 const scoresRouter = require("./routes/scoresRouter.js")
 
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, "client", "build")));
 //routes below
 app.use("/api", expressJwt({ secret: process.env.SECRET }));
 
-app.use("/api/users", usersRouter);
+app.use("/api/users", userRouter);
 app.use("/api/setCards", cardRouter);
 app.use("/api/scores", scoresRouter);
 
