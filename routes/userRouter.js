@@ -42,18 +42,6 @@ userRouter.route("/change-password")
     })
 
 userRouter.route("/delete-user")
-    // .delete((req, res) => {
-    //     UserModel.findOneAndRemove({ _id: req.params.id })
-    //         .exec((err, deletedUser) => {
-    //             if (err) {
-    //                 res.status(400).send(err)
-    //             } else if (deletedUser) {
-    //                 res.status(204).send()
-    //             } else {
-    //                 res.status(404).send("404 --- User Not Found")
-    //             }
-    //         })
-    // })
     .delete((req, res) => {
         UserModel.findOneAndRemove({ _id: req.user._id }, (err, deletedUser) => {
             if (err) res.status(500).send(err);

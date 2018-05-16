@@ -37,4 +37,3 @@ function ProfileViewEdit(props) {
 }
 
 export default connect(state => state.user, {})(ProfileViewEdit);
-// export default ProfileViewEdit;

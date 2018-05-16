@@ -23,4 +23,3 @@ function ProfilePassEdit(props) {
 }
 
 export default connect(state => state.user, {})(ProfilePassEdit);
-// export default ProfileViewEdit;
