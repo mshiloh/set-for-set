@@ -25,7 +25,7 @@ function ProfileViewEdit(props) {
                 <div style={{ display: "flex", flexDirection: "row" }}>
                     <button className="signup-butt" onClick={props.toggleIsEditing}>Back to Profile</button>
                     <button className="signup-butt" type="submit">Save Changes</button>
-                    <button style={{ width: "45px", height: "35px", padding: "0px", backgroundColor: "red" }} className="signup-butt" onClick={props.handleDeleteUser}>DELETE Profile</button>
+                    <button style={{backgroundColor: "red" }} className="signup-butt" onClick={props.handleDeleteUser}>DELETE Profile</button>
                 </div>
 
                 {props.errMsg && <p>{props.errMsg}</p>}

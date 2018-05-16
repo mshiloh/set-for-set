@@ -15,19 +15,19 @@
     width: 100vw;
 }
 
-.card-layout {
+.cards-layout {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    width: 80%;
 }
 
 .card {
     display: flex;
     height: 28vw;
     width: 20vw;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin: 5px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .stats {
@@ -79,9 +79,8 @@
 
 .butts-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
 }
 
 button {
@@ -94,12 +93,6 @@ button {
     margin: 5px;
 }
 
-/* Extra Small Devices, Phones */
-
-/* @media only screen and (min-width : 600px) {
-
-    } */
-
 /* Small Devices, Tablets */
 
 @media only screen and (min-width: 768px) {
@@ -111,8 +104,6 @@ button {
     .card {
         height: 23vw;
         width: 16.8vw;
-        border: 1px solid black;
-        border-radius: 5px;
         margin-top: 10px;
         margin-bottom: 10px;
     }
@@ -159,8 +150,6 @@ button {
     .card {
         height: 22vw;
         width: 15.5vw;
-        border: 1px solid black;
-        border-radius: 5px;
         margin: .5vw;
         margin-top: 1vw;
         margin-bottom: 1vw;
@@ -218,14 +207,12 @@ button {
         padding-top: 30px;
         padding-bottom: 30px;
     }
+    .cards-layout {
+        width: 60%;
+    }
     .card {
         height: 18vw;
         width: 12.5vw;
-        border: 1px solid black;
-        border-radius: 5px;
-        margin: .5vw;
-        margin-top: 1vw;
-        margin-bottom: 1vw;
     }
     .stats {
         display: flex;
@@ -280,17 +267,12 @@ button {
         padding-top: 30px;
         padding-bottom: 30px;
     }
-    .game-layout {
-        width: 70vw;
+    .cards-layout {
+        width: 50%;
     }
     .card {
         height: 14vw;
         width: 10vw;
-        border: 1px solid black;
-        border-radius: 5px;
-        margin: .5vw;
-        margin-top: 1vw;
-        margin-bottom: 1vw;
     }
     .stats {
         display: flex;
@@ -332,7 +314,6 @@ button {
     }
     button {
         border-radius: 6px;
-        margin: 5px;
         font-size: 2vw;
     }
 }

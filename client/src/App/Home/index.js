@@ -70,7 +70,7 @@ class Home extends React.Component {
                     <div className="welcome">
                         <h2>Welcome, &nbsp; @{isAuthenticated ? <Link className="userName" to="/profile">{this.props.name}</Link> : null}!</h2>
                     </div>
-                    <div className="socres-wrapper">
+                    <div>
                         <div className="rank">Rankings:</div>
                         <ol className="scores-wrapper">
                             {presentScores}

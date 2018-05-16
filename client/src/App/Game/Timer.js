@@ -14,16 +14,24 @@ export default class Timer extends Component {
     this.state = {
       secsPast: 0,
       lastIncrementer: null,
-      sets: 0      
+      sets: 0
     };
     this.incrementer = null;
     this.startClick = this.startClick.bind(this);
     this.pauseClick = this.pauseClick.bind(this);
     this.newGameClick = this.newGameClick.bind(this);
-    
   }
 
   startClick() {
+    this.incrementer = setInterval(() =>
+      this.setState({
+        secsPast: this.state.secsPast + 1
+      })
+      , 1000);
+    this.props.dealingCards();
+  }
+
+  restartTmer = () => {
     this.incrementer = setInterval(() =>
       this.setState({
         secsPast: this.state.secsPast + 1
@@ -36,6 +44,7 @@ export default class Timer extends Component {
     this.setState({
       lastIncrementer: this.incrementer
     });
+    this.props.pauseAndHideDeck;
   }
 
   newGameClick() {
@@ -52,17 +61,22 @@ export default class Timer extends Component {
         <h1>{formatSec(this.state.secsPast)}</h1>
 
         <div className="butts-container">
-          {(this.state.secsPast === 0 ||
-            this.incrementer === this.state.lastIncrementer
-            ? <button className="start-game" onClick={this.startClick}>Start</button>
-            : <button className="pause-game" onClick={this.pauseClick}>Pause</button>
-          )}
+
 
           {(this.state.secsPast !== 0 &&
             this.incrementer === this.state.lastIncrementer
-            ? <button className="new-game" onClick={this.newGameClick}>New Game</button>
+            ?
+            <div>
+              <button className="start-game" onClick={this.restartTmer}>Unpause</button>
+              <button className="new-game" onClick={this.newGameClick}>New Game</button>
+            </div>
             : null
           )}
+          {(this.state.secsPast === 0
+            ? <button className="start-game" onClick={this.startClick}>Start</button>
+            : ""
+          )}
+          <button className="pause-game" onClick={this.pauseClick}>Pause</button>
         </div>
       </div>
 
