@@ -11,31 +11,54 @@ class Game extends Component {
     constructor(props) {
         super(props);
         this.initialState = {
-            fullDeck: shuffler(props.data),
-            currentCardIndex: 14
+            fullDeck: [],
+            currentCardIndex: 11,
+            hideDeck: false
         }
         this.state = this.initialState;
     }
 
-    componentDidMount() {
+    dealingCards = () => {
         this.props.getCards();
-        // console.log(this.state.fullDeck);
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.data !== this.props.data) this.setState(prevState => {
+            return {
+                ...prevState,
+                fullDeck: shuffler(this.props.data)
+            }
+        });
+    }
+
+    pauseAndHideDeck = () => {
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                hideDeck: true
+            }
+        })
     }
 
     render() {
 
-        const { fullDeck } = this.state;
+        const { fullDeck, hideDeck } = this.state;
         const presentGameLayout = fullDeck.filter((card, i) => i < 12).map((card, i) => <GameDisplay
-            key={card._id + i} index={i} cardId={card._id} {...card} />)
+            key={card._id + i} index={i}
+            pauseAndHideDeck={this.pauseAndHideDeck}
+            cardId={card._id} {...card} />)
 
         return (
             <div className="game-wrapper">
 
                 <div className="game-layout">
+                    {hideDeck ? ""
+                        :
+                        <div className="cards-layout">
+                            {presentGameLayout}
+                        </div>
+                    }
 
-                    <div className="cards-layout">
-                        {presentGameLayout}
-                    </div>
 
                     <div className="stats">
 
@@ -45,7 +68,7 @@ class Game extends Component {
                         </div>
 
                         <div className="timer-container">
-                            <Timer className="timer" placeholder="00:00"></Timer>
+                            <Timer dealingCards={this.dealingCards} className="timer" placeholder="00:00"></Timer>
                         </div>
 
                     </div>
