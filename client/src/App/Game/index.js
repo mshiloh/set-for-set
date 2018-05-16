@@ -14,7 +14,8 @@ class Game extends Component {
             fullDeck: [],
             currentCardIndex: 11,
             hideDeck: false,
-            selectedCardsForSet: []
+            selectedCardsForSet: [],
+            messageForState: "Find a SET or check the game rules!"
         }
         this.state = this.initialState;
     }
@@ -50,11 +51,14 @@ class Game extends Component {
             }
         }, () => {
             if (this.state.selectedCardsForSet.length === 3) {
-                //shoot a check set function which will include the
+                //shoot a checkForSet function which will include the
                 // unselectingAllCards function
+                //shoot a fn that changes state or displays a message
+                // either "Nice - you got a set!" || "Nope, that's not a state!"
+                console.log(this.state.selectedCardsForSet.length);
             }
             console.log(this.state.selectedCardsForSet);
-            console.log(this.state.selectedCardsForSet.length);
+            // console.log(this.state.selectedCardsForSet.length);
         });
     }
 
@@ -65,10 +69,18 @@ class Game extends Component {
             }
         });
     }
+    
+    switchMessage = () => {
+        this.setState(prevState => {
+            return {
+                messageForState: "Good job! Thats a set"
+            }
+        });
+    }
 
     render() {
 
-        const { fullDeck, hideDeck } = this.state;
+        const { fullDeck, hideDeck, messageForState } = this.state;
         const presentGameLayout = fullDeck.filter((card, i) => i < 12).map((card, i) => <GameDisplay
             key={card._id + i} index={i}
             pauseAndHideDeck={this.pauseAndHideDeck}
@@ -89,10 +101,12 @@ class Game extends Component {
 
 
                     <div className="stats">
-
+                        <div className="message-for-set">
+                            <p>{messageForState}</p>
+                        </div>
                         <div className="sets-container">
                             <p className="sets-title"> SETS</p>
-                            <SetsCounter className="collected-sets"></SetsCounter>
+                            <SetsCounter className="collected-sets"/>
                         </div>
 
                         <div className="timer-container">
