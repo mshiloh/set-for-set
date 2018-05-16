@@ -180,6 +180,60 @@
 
 /* Medium Devices, Desktops */
 
+@media only screen and (min-width: 768px) {
+    .landing-rules-wrapper {
+        padding-top: 20px;
+        padding-bottom: 70px;
+    }
+    .landing-rules-head {
+        font-weight: 900;
+        font-size: 8vw;
+    }
+    .landing-rules-subhead {
+        padding-bottom: 20px;
+        font-size: 3vw;
+    }
+    .landing-rules-text {
+        padding: 5px;
+        padding-bottom: 20px;
+        font-weight: 600;
+        font-size: 2.8vw;
+    }
+    .landing-rules-info {
+        margin-left: 6vw;
+        margin-right: 6vw;
+        padding-bottom: 20px;
+        font-weight: 600;
+        font-size: 2.8vw;
+    }
+    .landing-example-sets {
+        width: 60vw;
+    }
+    .landing-prompt {
+        padding: 8px;
+        padding-top: 20px;
+        padding-bottom: 25px;
+        font-weight: 700;
+        font-size: 5vw;
+    }
+    .landing-login-butt,
+    .landing-signup-butt {
+        padding: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
+        border-radius: 10px;
+        font-size: 4.5vw;
+    }
+    .landing-login-butt {
+        margin-right: 3vw;
+    }
+    .landing-signup-butt {
+        margin-left: 3vw;
+    }
+}
+
+/* Medium Devices, Desktops */
+
 @media only screen and (min-width: 992px) {
     .landing-rules-wrapper {
         padding-top: 30px;
