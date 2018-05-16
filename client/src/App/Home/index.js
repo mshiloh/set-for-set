@@ -1,12 +1,13 @@
 import React from "react";
 import "./style.css";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import axios from "axios";
 const scoresAxios = axios.create();
 
 scoresAxios.interceptors.request.use(config => {
     const token = localStorage.getItem("token");
-    console.log(token);
+    // console.log(token);
     config.headers.Authorization = `Bearer ${token}`;
     return config;
 })
@@ -42,6 +43,7 @@ class Home extends React.Component {
 
     render = () => {
         // console.log(this.props);
+        const { isAuthenticated } = this.props;
         const { scores, errMsg, loading } = this.state;
         const presentScores = scores.sort((scoreOne, scoreTwo) =>
             scoreOne.bestScore < scoreTwo.bestScore).map((player, i) =>
@@ -66,10 +68,13 @@ class Home extends React.Component {
             return (
                 <div>
                     <div className="welcome">
-                        <h2>Welcome, &nbsp; @<i>{this.props.name}</i>!</h2>
+                        {/* {isAuthenticated ? <div className="nav-link"><Link to="/game">Game</Link></div> : null} */}
+
+                        {/* <div className="nav-link"><Link to="/game">Game</Link></div> */}
+                        <h2>Welcome, &nbsp; @{isAuthenticated ? <Link to="/profile">{this.props.name}</Link> : null}!</h2>
                     </div>
                     <div className="socresWrap">
-                    <div className="ranking">Rankings:</div>
+                        <div className="ranking">Rankings:</div>
                         {presentScores}
                     </div>
                 </div>

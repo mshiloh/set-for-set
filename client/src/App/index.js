@@ -15,6 +15,7 @@ import Rules from "./Rules"
 import Home from "./Home";
 import Game from "./Game";
 import Footer from "./Footer.js";
+import Profile from "./Profile";
 
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -43,7 +44,7 @@ class App extends Component {
 
                             <ProtectedRoute path="/home" component={Home} />
 
-                            
+                            <ProtectedRoute path="/profile" component={Profile} />
 
                             {/* <ProtectedRoute path="/game" component={Game} /> */}
                             <Route path="/game" component={Game} />
