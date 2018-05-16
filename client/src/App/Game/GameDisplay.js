@@ -1,9 +1,9 @@
 import React from "react";
 
 function GameDisplay(props) {
-
+    const { index } = props;
     return (
-        <div style={{ backgroundImage: `url(${props.image})` }} className="card"></div>
+        <div onClick={() => props.selectingCard(index)} style={{ backgroundImage: `url(${props.image})` }} className="card"></div>
     )
 }
 

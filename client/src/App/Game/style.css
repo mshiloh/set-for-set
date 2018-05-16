@@ -22,7 +22,6 @@
 }
 
 .card {
-    display: flex;
     height: 28vw;
     width: 20vw;
     background-position: center;
@@ -261,6 +260,13 @@ button {
 }
 
 /* Extra-Large Devices & Wide Screens */
+
+@media only screen and (min-width: 1367px) {
+    .card:hover {
+        border: 2px solid red;
+        cursor: pointer;
+    }
+}
 
 @media only screen and (min-width: 1500px) {
     .game-wrapper {

@@ -13,7 +13,8 @@ class Game extends Component {
         this.initialState = {
             fullDeck: [],
             currentCardIndex: 11,
-            hideDeck: false
+            hideDeck: false,
+            selectedCardsForSet: []
         }
         this.state = this.initialState;
     }
@@ -29,15 +30,40 @@ class Game extends Component {
                 fullDeck: shuffler(this.props.data)
             }
         });
+        // console.log(this.state.fullDeck);
     }
 
     pauseAndHideDeck = () => {
         this.setState(prevState => {
             return {
                 ...prevState,
-                hideDeck: true
+                hideDeck: !prevState.hideDeck
             }
         })
+    }
+
+    selectingCard = (indexSelectedCard) => {
+        const { fullDeck } = this.state;
+        this.setState(prevState => {
+            return {
+                selectedCardsForSet: [...prevState.selectedCardsForSet, fullDeck[indexSelectedCard]]
+            }
+        }, () => {
+            if (this.state.selectedCardsForSet.length === 3) {
+                //shoot a check set function which will include the
+                // unselectingAllCards function
+            }
+            console.log(this.state.selectedCardsForSet);
+            console.log(this.state.selectedCardsForSet.length);
+        });
+    }
+
+    unselectingAllCards = () => {
+        this.setState(prevState => {
+            return {
+                selectedCardsForSet: this.initialState.selectedCardsForSet
+            }
+        });
     }
 
     render() {
@@ -46,7 +72,9 @@ class Game extends Component {
         const presentGameLayout = fullDeck.filter((card, i) => i < 12).map((card, i) => <GameDisplay
             key={card._id + i} index={i}
             pauseAndHideDeck={this.pauseAndHideDeck}
-            cardId={card._id} {...card} />)
+            cardId={card._id}
+            selectingCard={this.selectingCard}
+            {...card} />)
 
         return (
             <div className="game-wrapper">
