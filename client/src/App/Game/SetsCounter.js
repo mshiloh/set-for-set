@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import "./style.css";
 
-export default class SetsCounter extends React.Component {
+export default class SetsCounter extends Component {
     constructor(props) {
         super(props);
         this.state = {

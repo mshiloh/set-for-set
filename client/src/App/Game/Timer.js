@@ -8,7 +8,7 @@ const formatSec = (sec) =>
   ('0' + sec % 60).slice(-2)
 
 
-export default class Timer extends React.Component {
+export default class Timer extends Component {
   constructor(props) {
     super(props);
     this.state = {
