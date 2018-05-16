@@ -1,24 +1,29 @@
+.profile-wrapper {
+    padding: 20px;
+    width: 100vw;
+}
+
 .welcome {
     padding-bottom: 20px;
 }
 
-.socresWrap {
+.userName {
+    text-decoration: underline;
+    text-transform: capitalize;
+}
+
+.userName:hover {
+    color: blue;
+}
+
+.scores-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: start;
     border: 2px solid black;
 }
 
-.oneScore h3 {
-    color: rgb(33, 109, 33);
-    padding-bottom: 10px;
-}
-
-.oneScore h4 {
-    text-transform: capitalize;
-}
-
-.ranking {
+.rank {
     font-weight: bold;
     padding-left: 15px;
     padding-top: 5px;
@@ -26,16 +31,7 @@
     font-size: 1.5em;
 }
 
-.userName {
-    text-decoration: underline;
+.one-score {
+    padding: 20px;
     text-transform: capitalize;
-    color: rgb(33, 109, 33);
-}
-
-.userName:hover {
-    color: blue;
-}
-
-ol {
-    line-height: 0px;
 }

@@ -148,7 +148,7 @@ class Profile extends Component {
                 <div className="signup-form-wrapper">
                     <div className="signup-form-container">
                         <h3 className="signup-head">Profile</h3>
-                        {this.props.avatar.length === 0 ? "" : <img src={this.props.avatar} alt="Profile" />}
+                        {this.props.avatar.length === 0 ? "" : <img className="avatar" src={this.props.avatar} alt="Profile" />}
                         <h4 className="signup-form-input" style={{ textTransform: "capitalize" }} >Name: {this.props.name}</h4>
                         <h4 className="signup-form-input">Email: {this.props.email}</h4>
                         <h4 className="signup-form-input">Best Score: {this.props.bestScore}</h4>

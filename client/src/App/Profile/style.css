@@ -41,6 +41,7 @@
     cursor: pointer;
 }
 
-img {
+
+.avatar {
     max-width: 170px;
 }

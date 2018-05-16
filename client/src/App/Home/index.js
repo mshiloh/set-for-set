@@ -48,9 +48,9 @@ class Home extends React.Component {
         const presentScores = scores.sort((scoreOne, scoreTwo) =>
             scoreOne.bestScore < scoreTwo.bestScore).map((player, i) =>
                 <li
-                    key={player._id + i} className="oneScore">
-                    <h4>{player.name}</h4>
-                    <h3>{player.bestScore}</h3>
+                    key={player._id + i} className="one-score">
+                    <h4 className="player">{player.name}</h4>
+                    <h3 className="bestScore">{player.bestScore}</h3>
                 </li>
             );
 
@@ -66,13 +66,13 @@ class Home extends React.Component {
             )
         } else {
             return (
-                <div>
+                <div className="profile-wrapper">
                     <div className="welcome">
                         <h2>Welcome, &nbsp; @{isAuthenticated ? <Link className="userName" to="/profile">{this.props.name}</Link> : null}!</h2>
                     </div>
-                    <div className="socresWrap">
-                        <div className="ranking">Rankings:</div>
-                        <ol>
+                    <div className="socres-wrapper">
+                        <div className="rank">Rankings:</div>
+                        <ol className="scores-wrapper">
                             {presentScores}
                         </ol>
                     </div>
