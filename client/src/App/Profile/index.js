@@ -26,7 +26,9 @@ class Profile extends Component {
                 avatar: props.avatar
             },
             isEditing: false,
-            isEditingPass: false
+            isEditingPass: false,
+            errMsgPass: "",
+            loading: false
         }
     }
 
@@ -65,22 +67,49 @@ class Profile extends Component {
     }
 
     handleSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         this.props.editUser(this.props._id, this.state.inputs);
         this.clearInputs();
-        this.toggleIsEditing();
+        // this.toggleIsEditing();
     }
     handleSubmitPass = (e) => {
-        e.preventDefault();
-        userAxios.post(`/api/users/change-password`, {password: this.state.inputs.password})
-            .then(response => {})
-            .catch(err => {});
+        // e.preventDefault();
+        this.setState(prevState => {
+            return {
+                ...prevState,
+                loading: true
+            }
+        });
+        userAxios.post(`/api/users/change-password`, { password: this.state.inputs.password })
+            .then(response => {
+                this.setState(prevState => {
+                    return {
+                        ...prevState,
+                        loading: false
+                    }
+                })
+             })
+            // .catch(err => { });
+            .catch(err => {
+                this.setState(prevState => {
+                    return {
+                        ...prevState,
+                        errMsgPass: err.message
+                    }
+                })
+            })
         this.clearInputs();
-        this.toggleIsEditingPass();
+        // this.toggleIsEditingPass();
+    }
+    handleDeleteUser = (e) => {
+        // e.preventDefault();
+        userAxios.delete(`/api/users/delete-user`)
+            .then(response => { })
+            .catch(err => { });
     }
 
     render() {
-        const { isEditing, isEditingPass } = this.state;
+        const { isEditing, isEditingPass, errMsgPass, loading } = this.state;
         const authErrorCode = this.props.authErrCode;
         let errMsg = '';
         if (authErrorCode < 500 && authErrorCode > 399) {
@@ -89,7 +118,6 @@ class Profile extends Component {
             errMsg = "Server error!"
         }
         // console.log(this.props);
-        //1
         if (isEditing) {
             return (
                 <div className="signup-form-wrapper">
@@ -98,10 +126,13 @@ class Profile extends Component {
                         handleSubmit={this.handleSubmit}
                         errMsg={errMsg}
                         toggleIsEditing={this.toggleIsEditing}
+                        handleDeleteUser={this.handleDeleteUser}
                         {...this.state} />
                 </div>
             )
         } else if (isEditingPass) {
+            if (loading) return <h1>... Loading!</h1>
+            if (errMsgPass) return <p>Sorry, password can not be changed now!</p>
             return (
                 <div className="signup-form-wrapper">
                     <ProfilePassEdit
@@ -118,42 +149,18 @@ class Profile extends Component {
                     <div className="signup-form-container">
                         <h3 className="signup-head">Profile</h3>
                         {this.props.avatar.length === 0 ? "" : <img src={this.props.avatar} alt="Profile" />}
-                        <h4 className="signup-form-input">Name: {this.props.name}</h4>
+                        <h4 className="signup-form-input" style={{ textTransform: "capitalize" }} >Name: {this.props.name}</h4>
                         <h4 className="signup-form-input">Email: {this.props.email}</h4>
                         <h4 className="signup-form-input">Best Score: {this.props.bestScore}</h4>
-                        <div>
-                            <button className="signup-butt" onClick={this.toggleIsEditing}>Edit Info</button>
+                        <div style={{ display: "flex", flexDirection: "row" }}>
+                            <button className="signup-butt" onClick={this.toggleIsEditing}>Edit Account</button>
                             <button className="signup-butt" onClick={this.toggleIsEditingPass}>Change Password</button>
                         </div>
                     </div>
                 </div>
             )
         }
-        // return (
-        //     <div className="signup-form-wrapper">
-        //         {isEditing
-        //             ?
-        //             <ProfileViewEdit
-        //                 handleChange={this.handleChange}
-        //                 handleSubmit={this.handleSubmit}
-        //                 errMsg={errMsg}
-        //                 toggleIsEditing={this.toggleIsEditing}
-        //                 {...this.state} />
-        //             :
-        //             <div className="signup-form-container">
-        //                 <h3 className="signup-head">Profile</h3>
-        //                 <img src={this.props.avatar} alt="Profile" />
-        //                 <h4 className="signup-form-input">Name: {this.props.name}</h4>
-        //                 <h4 className="signup-form-input">Email: {this.props.email}</h4>
-        //                 <h4 className="signup-form-input">Best Score: {this.props.bestScore}</h4>
-        //                 <button className="signup-butt" onClick={this.toggleIsEditing}>Edit</button>
-        //             </div>
-        //         }
-        //     </div>
-        // )
     }
 }
-
-// const mapStateToProps = state => state
 
 export default connect(state => state.user, { signup, editUser })(Profile);

@@ -47,11 +47,11 @@ class Home extends React.Component {
         const { scores, errMsg, loading } = this.state;
         const presentScores = scores.sort((scoreOne, scoreTwo) =>
             scoreOne.bestScore < scoreTwo.bestScore).map((player, i) =>
-                <div
+                <li
                     key={player._id + i} className="oneScore">
                     <h4>{player.name}</h4>
                     <h3>{player.bestScore}</h3>
-                </div>
+                </li>
             );
 
         if (loading) {
@@ -68,14 +68,13 @@ class Home extends React.Component {
             return (
                 <div>
                     <div className="welcome">
-                        {/* {isAuthenticated ? <div className="nav-link"><Link to="/game">Game</Link></div> : null} */}
-
-                        {/* <div className="nav-link"><Link to="/game">Game</Link></div> */}
-                        <h2>Welcome, &nbsp; @{isAuthenticated ? <Link to="/profile">{this.props.name}</Link> : null}!</h2>
+                        <h2>Welcome, &nbsp; @{isAuthenticated ? <Link className="userName" to="/profile">{this.props.name}</Link> : null}!</h2>
                     </div>
                     <div className="socresWrap">
                         <div className="ranking">Rankings:</div>
-                        {presentScores}
+                        <ol>
+                            {presentScores}
+                        </ol>
                     </div>
                 </div>
             )
