@@ -1,77 +1,40 @@
 import React, { Component } from "react";
-
 import { connect } from "react-redux";
-
 import "./style.css";
-
 import { getCards } from "../../redux/cards";
-
-import shuffler from "../../helpers/shuffler";
-
+import shuffler from "../../helpers/shuffler.js";
 import SetsCounter from "./SetsCounter";
 import Timer from "./Timer";
+import GameDisplay from "./GameDisplay.js";
 
 class Game extends Component {
     constructor(props) {
         super(props);
         this.initialState = {
-            fullDeck: props.data
+            fullDeck: shuffler(props.data),
+            currentCardIndex: 14
         }
         this.state = this.initialState;
     }
 
-    componentWillMount() {
-        this.props.getCards();
-        console.log(this.state.fullDeck);
-    }
-
     componentDidMount() {
-        const { data } = this.props;
-        console.log(data);
-        this.setState(prevState => {
-            return { ...prevState, fullDeck: shuffler(this.state.fullDeck) }
-        })
-        console.log(this.state.fullDeck);
+        this.props.getCards();
+        // console.log(this.state.fullDeck);
     }
 
     render() {
 
-        const {fullDeck} = this.state;
-        const {image} = this.props;
+        const { fullDeck } = this.state;
+        const presentGameLayout = fullDeck.filter((card, i) => i < 12).map((card, i) => <GameDisplay
+            key={card._id + i} index={i} cardId={card._id} {...card} />)
 
-return (
+        return (
             <div className="game-wrapper">
 
                 <div className="game-layout">
 
-                    <div className="card-layout">
-
-                        <div className="column1">
-                        <div className="card card5">1</div>
-                           
-                            {/* <img className="card card1" src={fullDeck[0].image} alt="card-one"/> */}
-                            <div className="card card5">5</div>
-                            <div className="card card9">9</div>
-                        </div>
-
-                        <div className="column2">
-                            <div className="card  card2">2</div>
-                            <div className="card card6">6</div>
-                            <div className="card card10">10</div>
-                        </div>
-
-                        <div className="column3">
-                            <div className="card card3">3</div>
-                            <div className="card card7">7</div>
-                            <div className="card card11">11</div>
-                        </div>
-
-                        <div className="column4">
-                            <div className="card card4">4</div>
-                            <div className="card card8">8</div>
-                            <div className="card card12">12</div>
-                        </div>
-
+                    <div className="cards-layout">
+                        {presentGameLayout}
                     </div>
 
                     <div className="stats">
