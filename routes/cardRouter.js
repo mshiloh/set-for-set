@@ -11,12 +11,11 @@ cardRouter.route("/")
                 res.status(200).send(foundCards)
             });
     })
-    //POST request
+    //POST ALL request
     .post((req, res) => {
-        const newCard = new CardModel(req.body);
-        newCard.save((err, savedCard) => {
-            if (err) return res.send(err);
-            res.status(200).send(savedCard);
+        CardModel.insertMany(req.body, (err, docs)=> {
+            if(err) return res.status(500).send(err);
+            res.status(200).send(docs);
         })
     })
 

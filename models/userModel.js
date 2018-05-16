@@ -43,6 +43,19 @@ userSchema.pre("save", function (next) {
     });
 });
 
+// userSchema.pre("update", function (next) {
+//     console.log(this._update)
+//     const { password } = this._update;
+//     if (password) {
+        // bcrypt.hash(password, 10, (err, hash) => {
+        //     if (err) return next(err);
+        //     this._update.password = hash;
+        //     next();
+        // });
+//     }
+//     next();
+// });
+
 userSchema.methods.checkPassword = function (passwordAttempt, callback) {
     bcrypt.compare(passwordAttempt, this.password, (err, isMatch) => {
         if (err) return callback(err);

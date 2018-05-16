@@ -19,6 +19,7 @@ authRouter.post("/signup", (req, res) => {
             }
         })
 });
+
 authRouter.post("/login", (req, res) => {
     UserModel.findOne({ email: req.body.email.toLowerCase() }, (err, user) => {
         if (err) return res.status(500).send(err);
@@ -26,11 +27,9 @@ authRouter.post("/login", (req, res) => {
         user.checkPassword(req.body.password, (err, match) => {
             if (err) return res.status(500).send(err);
             if (!match) return res.status(401).send({ success: false, message: "Invalid Password" })
-            const token = jwt.sign(user.toObject(), process.env.SECRET, { expiresIn: "2w" });
+            const token = jwt.sign(user.toObject(), process.env.SECRET, { expiresIn: "4w" });
             return res.send({ token: token, user: user.withoutPassword(), success: true })
         })
-
-
     });
 });
 
