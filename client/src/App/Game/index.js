@@ -68,47 +68,51 @@ class Game extends Component {
                 // unselectingAllCards function
                 //shoot a fn that changes state or displays a message
                 // either "Nice - you got a set!" || "Nope, that's not a state!"
-                if ((cardsForCheck[0].number !== cardsForCheck[1].number &&
+                if (
+                    ((cardsForCheck[0].number !== cardsForCheck[1].number &&
                     cardsForCheck[1].number !== cardsForCheck[2].number &&
                     cardsForCheck[0].number !== cardsForCheck[2].number)
                     ||
                     (cardsForCheck[0].number === cardsForCheck[1].number &&
-                    cardsForCheck[1].number === cardsForCheck[2].number)) {
-                    if ((cardsForCheck[0].color !== cardsForCheck[1].color &&
-                        cardsForCheck[1].color !== cardsForCheck[2].color &&
-                        cardsForCheck[0].color !== cardsForCheck[2].color)
-                        ||
-                        (cardsForCheck[0].color === cardsForCheck[1].color &&
-                        cardsForCheck[1].color === cardsForCheck[2].color)) {
-                        if ((cardsForCheck[0].filling !== cardsForCheck[1].filling &&
-                            cardsForCheck[1].filling !== cardsForCheck[2].filling &&
-                            cardsForCheck[0].filling !== cardsForCheck[2].filling)
-                            ||
-                            (cardsForCheck[0].filling === cardsForCheck[1].filling &&
-                            cardsForCheck[1].filling === cardsForCheck[2].filling)) {
-                            if ((cardsForCheck[0].shape !== cardsForCheck[1].shape &&
-                                cardsForCheck[1].shape !== cardsForCheck[2].shape &&
-                                cardsForCheck[0].shape !== cardsForCheck[2].shape)
-                                ||
-                                (cardsForCheck[0].shape === cardsForCheck[1].shape &&
-                                cardsForCheck[1].shape === cardsForCheck[2].shape)) {
-                                this.setState(prevState => {
-                                    return {
-                                        isMatch: true
-                                    }
-                                })
+                    cardsForCheck[1].number === cardsForCheck[2].number))
 
-                                // console.log(this.state.selectedCardsForSet.length);
-                            }
+                    &&
+
+                    ((cardsForCheck[0].color !== cardsForCheck[1].color &&
+                    cardsForCheck[1].color !== cardsForCheck[2].color &&
+                    cardsForCheck[0].color !== cardsForCheck[2].color)
+                    ||
+                    (cardsForCheck[0].color === cardsForCheck[1].color &&
+                    cardsForCheck[1].color === cardsForCheck[2].color))
+
+                    &&
+
+                    ((cardsForCheck[0].filling !== cardsForCheck[1].filling &&
+                    cardsForCheck[1].filling !== cardsForCheck[2].filling &&
+                    cardsForCheck[0].filling !== cardsForCheck[2].filling)
+                    ||
+                    (cardsForCheck[0].filling === cardsForCheck[1].filling &&
+                    cardsForCheck[1].filling === cardsForCheck[2].filling))
+
+                    &&
+
+                    ((cardsForCheck[0].shape !== cardsForCheck[1].shape &&
+                    cardsForCheck[1].shape !== cardsForCheck[2].shape &&
+                    cardsForCheck[0].shape !== cardsForCheck[2].shape)
+                    ||
+                    (cardsForCheck[0].shape === cardsForCheck[1].shape &&
+                    cardsForCheck[1].shape === cardsForCheck[2].shape))
+                ) {
+                    console.log("SET FOUND");
+                    this.setState(prevState => {
+                        return {
+                            collectedSets: prevState.collectedSets + 1,
+                            selectedCardsForSet: []
                         }
-                        console.log(this.state.isMatch);
-                        if (isMatch) {
-                            console.log("SET FOUND");
-                        } else {
-                            console.log("NO SET FOUND");
-                        }
-                        
-                    }
+                    });
+                } else {
+                    console.log("NO SET FOUND");
+                    this.setState({selectedCardsForSet: []});
                 }
             }
             // console.log(this.state.selectedCardsForSet);
