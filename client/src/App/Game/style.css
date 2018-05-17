@@ -48,16 +48,23 @@
     padding: 5px;
     width: 20%;
 }
-.message-for-set {
+.message-for-set, 
+.message-for-possible {
     width: 30%;
     font-size: 1.1em;
     background-color: red;
     border-radius: 10%;
+    text-align: center;
 }
 
-.message-for-set p {
+.message-for-set p,
+.message-for-possible p {
     padding: 4px;
     line-height: 15px;
+}
+
+.message-for-possible {
+    background-color: green;
 }
 
 .sets-title {
@@ -180,10 +187,15 @@ button {
         align-items: center;
     }
     .message-for-set {
-        width: 45%;
+        width: 200px;
         padding-bottom: 10px;
     }
-    .message-for-set p {
+    .message-for-possible {
+        width: 100px;
+    }
+
+    .message-for-set p,
+    .message-for-possible p {
         padding: 6px;
         line-height: 40px;
     }
@@ -284,6 +296,9 @@ button {
     .card:hover {
         border: 2px solid red;
         cursor: pointer;
+    }
+    .message-for-set {
+        width: 270px;
     }
 }
 

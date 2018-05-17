@@ -19,7 +19,7 @@ function combinate(options, currentCombination, start, end, index, combinationSi
   }
 }
 
-class Combinator {
+export class Combinator {
   static getAllCombinations(options, combinationSize) {
     combinations = [];
     let total = options.length;
@@ -30,5 +30,3 @@ class Combinator {
     return combinations;
   }
 }
-
-export default Combinator;

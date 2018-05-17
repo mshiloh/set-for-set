@@ -6,6 +6,9 @@ import shuffler from "../../helpers/shuffler.js";
 import SetsCounter from "./SetsCounter";
 import Timer from "./Timer";
 import GameDisplay from "./GameDisplay.js";
+// import { attributes } from "./../../helpers/cardCreater.js";
+// import { allDifferent, allTheSame } from "./../../helpers/allSameAllDiff.js";
+// import { Combinator } from "./../../helpers/combinator.js";
 
 class Game extends Component {
     constructor(props) {
@@ -13,9 +16,11 @@ class Game extends Component {
         this.initialState = {
             fullDeck: [],
             currentCardIndex: 11,
+            cardsOnDeck: [],
             hideDeck: false,
             selectedCardsForSet: [],
-            messageForState: "Find a SET or check the game rules!"
+            messageForState: "Find a SET or check the game rules!",
+            collectedSets: 0
         }
         this.state = this.initialState;
     }
@@ -24,21 +29,27 @@ class Game extends Component {
         this.props.getCards();
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevProps.data !== this.props.data) this.setState(prevState => {
-            return {
-                ...prevState,
-                fullDeck: shuffler(this.props.data)
+    componentDidUpdate = (prevProps, prevState) => {
+        if (prevProps.data !== this.props.data)
+            return this.setState(prevState => {
+                const shuffledCards = shuffler(this.props.data);
+                return {
+                    // ...prevState,
+                    fullDeck: shuffledCards,
+                    cardsOnDeck: shuffledCards.slice(0, 12)
+                }
+            }, () => {
+                console.log(this.state.cardsOnDeck)
+                console.log(this.state.fullDeck)
             }
-        });
-        // console.log(this.state.fullDeck);
+            );
     }
 
     pauseAndHideDeck = () => {
         this.setState(prevState => {
             return {
                 ...prevState,
-                hideDeck: !prevState.hideDeck
+                hideDeck: !this.state.hideDeck
             }
         })
     }
@@ -51,14 +62,48 @@ class Game extends Component {
             }
         }, () => {
             if (this.state.selectedCardsForSet.length === 3) {
+                const cardsForCheck = this.state.selectedCardsForSet;
                 //shoot a checkForSet function which will include the
                 // unselectingAllCards function
                 //shoot a fn that changes state or displays a message
                 // either "Nice - you got a set!" || "Nope, that's not a state!"
-                console.log(this.state.selectedCardsForSet.length);
+                if ((cardsForCheck[0].number !== cardsForCheck[1].number &&
+                    cardsForCheck[1].number !== cardsForCheck[2].number &&
+                    cardsForCheck[0].number !== cardsForCheck[2])
+                    ||
+                    (cardsForCheck[0].number === cardsForCheck[1].number &&
+                        cardsForCheck[1].number === cardsForCheck[2].number)) {
+                    if ((cardsForCheck[0].color !== cardsForCheck[1].color &&
+                        cardsForCheck[1].color !== cardsForCheck[2].color &&
+                        cardsForCheck[0].color !== cardsForCheck[2])
+                        ||
+                        (cardsForCheck[0].color === cardsForCheck[1].color &&
+                            cardsForCheck[1].color === cardsForCheck[2].color)) {
+                        if ((cardsForCheck[0].filling !== cardsForCheck[1].filling &&
+                            cardsForCheck[1].filling !== cardsForCheck[2].filling &&
+                            cardsForCheck[0].filling !== cardsForCheck[2])
+                            ||
+                            (cardsForCheck[0].filling === cardsForCheck[1].filling &&
+                                cardsForCheck[1].filling === cardsForCheck[2].filling)) {
+                            if ((cardsForCheck[0].shape !== cardsForCheck[1].shape &&
+                                cardsForCheck[1].shape !== cardsForCheck[2].shape &&
+                                cardsForCheck[0].shape !== cardsForCheck[2])
+                                ||
+                                (cardsForCheck[0].shape === cardsForCheck[1].shape &&
+                                    cardsForCheck[1].shape === cardsForCheck[2].shape)) {
+                                console.log(this.state.selectedCardsForSet.length);
+                                return console.log("Now there - SET");
+                            }
+                        }
+                    }
+                }
+
+
+
+                // this.unselectingAllCards()
+
             }
             console.log(this.state.selectedCardsForSet);
-            // console.log(this.state.selectedCardsForSet.length);
         });
     }
 
@@ -69,7 +114,7 @@ class Game extends Component {
             }
         });
     }
-    
+
     switchMessage = () => {
         this.setState(prevState => {
             return {
@@ -78,12 +123,47 @@ class Game extends Component {
         });
     }
 
-    render() {
+    // @josefie github.com
+    // isAttributeMatch = (attributesValues) => {
+    //     if (!allTheSame(attributesValues) && !allDifferent(attributesValues)) {
+    //         return false;
+    //     }
+    //     return true;
+    // }
+    // getCardById = (id) => {
+    //     const allCards = this.state.fullDeck;
+    //     const index = allCards.map((card) => card._id).indexOf(id);
+    //     console.log(index);
+    //     return allCards[index];
+    // }
+    // doCardsMatch = (possibleSet) => {
+    //     let cards = possibleSet.map((id) => this.getCardById(id));
 
-        const { fullDeck, hideDeck, messageForState } = this.state;
-        const presentGameLayout = fullDeck.filter((card, i) => i < 12).map((card, i) => <GameDisplay
+    //     return Object.keys(attributes).every((attribute) => {
+    //         let attributeValues = cards.map((card) => card[attribute]);
+    //         return this.isAttributeMatch(attributeValues);
+    //     });
+    // }
+    // findSets = () => {
+    //     let combinations = Combinator.getAllCombinations(this.state.cardsOnDeck, 3);
+
+    //     let setsInCurrentCards = [];
+
+    //     for (let i = 0; i < combinations.length; i++) {
+    //         if (this.doCardsMatch(combinations[i])) {
+    //             setsInCurrentCards.push(combinations[i]);
+    //         }
+    //     }
+    //     console.log(setsInCurrentCards)
+    //     return setsInCurrentCards;
+    // }
+    // -----
+
+    render = () => {
+
+        const { cardsOnDeck, hideDeck, messageForState, collectedSets } = this.state;
+        const presentGameLayout = cardsOnDeck/*.filter((card, i) => i < 12)*/.map((card, i) => <GameDisplay
             key={card._id + i} index={i}
-            pauseAndHideDeck={this.pauseAndHideDeck}
             cardId={card._id}
             selectingCard={this.selectingCard}
             {...card} />)
@@ -106,11 +186,13 @@ class Game extends Component {
                         </div>
                         <div className="sets-container">
                             <p className="sets-title"> SETS</p>
-                            <SetsCounter className="collected-sets"/>
+                            <SetsCounter collectedSets={collectedSets} className="collected-sets" />
                         </div>
-
+                        {/* <div className="message-for-possible">
+                            <p>{this.findSets().length}</p>
+                        </div> */}
                         <div className="timer-container">
-                            <Timer dealingCards={this.dealingCards} className="timer" placeholder="00:00"></Timer>
+                            <Timer pauseAndHideDeck={this.pauseAndHideDeck} dealingCards={this.dealingCards} className="timer" placeholder="00:00"></Timer>
                         </div>
 
                     </div>
