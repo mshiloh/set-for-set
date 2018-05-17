@@ -52,7 +52,8 @@
 .message-for-possible {
     width: 30%;
     font-size: 1.1em;
-    background-color: red;
+    /* background-color: red; */
+    border: 2px solid black;
     border-radius: 10%;
     text-align: center;
 }
