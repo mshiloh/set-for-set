@@ -6,7 +6,7 @@ export default class SetsCounter extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            sets: 0
+            collectedSets: props.collectedSets
         }
         this.newGameClick = this.newGameClick.bind(this);
         // this.addSet = this.addSet.bind(this);
@@ -25,14 +25,14 @@ export default class SetsCounter extends Component {
     newGameClick() {
         clearInterval(this.incrementer);
         this.setState({
-            sets: 0
+            collectedSets: 0
         });
     }
 
     render() {
         return (
             <div className="collected-sets">
-                <h1>{(this.state.sets)}</h1>
+                <h1>{(this.state.collectedSets)}</h1>
             </div>
         );
     }
