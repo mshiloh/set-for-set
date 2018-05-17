@@ -19,7 +19,7 @@
 //             cardsOnDeck: [],
 //             hideDeck: false,
 //             selectedCardsForSet: [],
-//             messageForSet: false,
+//             
 //             collectedSets: 0,
 //             isMatch: false
 //         }
