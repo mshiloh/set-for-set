@@ -21,13 +21,16 @@ class Game extends Component {
             selectedCardsForSet: [],
             messageForState: "Find a SET or check the game rules!",
             collectedSets: 0,
-            isMatch: false
+            messageForSet: false
         }
         this.state = this.initialState;
     }
 
     dealingCards = () => {
         this.props.getCards();
+        this.setState(prevState => {
+            collectedSets: 0
+        })
     }
 
     componentDidUpdate = (prevProps, prevState) => {
@@ -49,8 +52,7 @@ class Game extends Component {
     pauseAndHideDeck = () => {
         this.setState(prevState => {
             return {
-                ...prevState,
-                hideDeck: !this.state.hideDeck
+                hideDeck: prevState.hideDeck
             }
         })
     }
@@ -70,49 +72,67 @@ class Game extends Component {
                 // either "Nice - you got a set!" || "Nope, that's not a state!"
                 if (
                     ((cardsForCheck[0].number !== cardsForCheck[1].number &&
-                    cardsForCheck[1].number !== cardsForCheck[2].number &&
-                    cardsForCheck[0].number !== cardsForCheck[2].number)
-                    ||
-                    (cardsForCheck[0].number === cardsForCheck[1].number &&
-                    cardsForCheck[1].number === cardsForCheck[2].number))
+                        cardsForCheck[1].number !== cardsForCheck[2].number &&
+                        cardsForCheck[0].number !== cardsForCheck[2].number)
+                        ||
+                        (cardsForCheck[0].number === cardsForCheck[1].number &&
+                            cardsForCheck[1].number === cardsForCheck[2].number))
 
                     &&
 
                     ((cardsForCheck[0].color !== cardsForCheck[1].color &&
-                    cardsForCheck[1].color !== cardsForCheck[2].color &&
-                    cardsForCheck[0].color !== cardsForCheck[2].color)
-                    ||
-                    (cardsForCheck[0].color === cardsForCheck[1].color &&
-                    cardsForCheck[1].color === cardsForCheck[2].color))
+                        cardsForCheck[1].color !== cardsForCheck[2].color &&
+                        cardsForCheck[0].color !== cardsForCheck[2].color)
+                        ||
+                        (cardsForCheck[0].color === cardsForCheck[1].color &&
+                            cardsForCheck[1].color === cardsForCheck[2].color))
 
                     &&
 
                     ((cardsForCheck[0].filling !== cardsForCheck[1].filling &&
-                    cardsForCheck[1].filling !== cardsForCheck[2].filling &&
-                    cardsForCheck[0].filling !== cardsForCheck[2].filling)
-                    ||
-                    (cardsForCheck[0].filling === cardsForCheck[1].filling &&
-                    cardsForCheck[1].filling === cardsForCheck[2].filling))
+                        cardsForCheck[1].filling !== cardsForCheck[2].filling &&
+                        cardsForCheck[0].filling !== cardsForCheck[2].filling)
+                        ||
+                        (cardsForCheck[0].filling === cardsForCheck[1].filling &&
+                            cardsForCheck[1].filling === cardsForCheck[2].filling))
 
                     &&
 
                     ((cardsForCheck[0].shape !== cardsForCheck[1].shape &&
-                    cardsForCheck[1].shape !== cardsForCheck[2].shape &&
-                    cardsForCheck[0].shape !== cardsForCheck[2].shape)
-                    ||
-                    (cardsForCheck[0].shape === cardsForCheck[1].shape &&
-                    cardsForCheck[1].shape === cardsForCheck[2].shape))
+                        cardsForCheck[1].shape !== cardsForCheck[2].shape &&
+                        cardsForCheck[0].shape !== cardsForCheck[2].shape)
+                        ||
+                        (cardsForCheck[0].shape === cardsForCheck[1].shape &&
+                            cardsForCheck[1].shape === cardsForCheck[2].shape))
                 ) {
-                    console.log("SET FOUND");
+                    const { selectedCardsForSet, cardsOnDeck, currentCardIndex } = this.state;
+                    // console.log("SET FOUND");
+                    const newDeck = cardsOnDeck.filter(card => {
+                        return (
+                            card._id !== selectedCardsForSet[0]._id && card._id !== selectedCardsForSet[1]._id
+                            && card._id !== selectedCardsForSet[2]._id)
+                    }).map(card => card);
+
                     this.setState(prevState => {
                         return {
+                            cardsOnDeck: [...newDeck, ...fullDeck.slice((currentCardIndex + 1), (currentCardIndex + 4))],
+                            currentCardIndex: prevState.currentCardIndex + 3,
                             collectedSets: prevState.collectedSets + 1,
-                            selectedCardsForSet: []
+                            selectedCardsForSet: [],
+                            messageForSet: true
                         }
-                    });
+                    }, () => /*console.log(selectedCardsForSet.length) */
+                            setTimeout(() => {
+                                this.setState(prevState => {
+                                    return {
+                                        messageForSet: false
+                                    }
+                                });
+                            }, 3000)
+                    );
                 } else {
                     console.log("NO SET FOUND");
-                    this.setState({selectedCardsForSet: []});
+                    this.setState({ selectedCardsForSet: [] });
                 }
             }
             // console.log(this.state.selectedCardsForSet);
@@ -135,45 +155,10 @@ class Game extends Component {
         });
     }
 
-    // @josefie github.com
-    // isAttributeMatch = (attributesValues) => {
-    //     if (!allTheSame(attributesValues) && !allDifferent(attributesValues)) {
-    //         return false;
-    //     }
-    //     return true;
-    // }
-    // getCardById = (id) => {
-    //     const allCards = this.state.fullDeck;
-    //     const index = allCards.map((card) => card._id).indexOf(id);
-    //     console.log(index);
-    //     return allCards[index];
-    // }
-    // doCardsMatch = (possibleSet) => {
-    //     let cards = possibleSet.map((id) => this.getCardById(id));
-
-    //     return Object.keys(attributes).every((attribute) => {
-    //         let attributeValues = cards.map((card) => card[attribute]);
-    //         return this.isAttributeMatch(attributeValues);
-    //     });
-    // }
-    // findSets = () => {
-    //     let combinations = Combinator.getAllCombinations(this.state.cardsOnDeck, 3);
-
-    //     let setsInCurrentCards = [];
-
-    //     for (let i = 0; i < combinations.length; i++) {
-    //         if (this.doCardsMatch(combinations[i])) {
-    //             setsInCurrentCards.push(combinations[i]);
-    //         }
-    //     }
-    //     console.log(setsInCurrentCards)
-    //     return setsInCurrentCards;
-    // }
-    // -----
-
     render = () => {
 
-        const { cardsOnDeck, hideDeck, messageForState, collectedSets } = this.state;
+        const { cardsOnDeck, hideDeck, messageForState,
+            collectedSets, messageForSet } = this.state;
         const presentGameLayout = cardsOnDeck/*.filter((card, i) => i < 12)*/.map((card, i) => <GameDisplay
             key={card._id + i} index={i}
             cardId={card._id}
@@ -194,15 +179,13 @@ class Game extends Component {
 
                     <div className="stats">
                         <div className="message-for-set">
-                            <p>{messageForState}</p>
+                            {!messageForSet ? <p className="noSet">"No SET yet!"</p>
+                                : <p className="yesSet">"Good, job! That's a SET!"</p>}
                         </div>
                         <div className="sets-container">
                             <p className="sets-title"> SETS</p>
                             <SetsCounter collectedSets={collectedSets} className="collected-sets" />
                         </div>
-                        {/* <div className="message-for-possible">
-                            <p>{this.findSets().length}</p>
-                        </div> */}
                         <div className="timer-container">
                             <Timer pauseAndHideDeck={this.pauseAndHideDeck} dealingCards={this.dealingCards} className="timer" placeholder="00:00"></Timer>
                         </div>

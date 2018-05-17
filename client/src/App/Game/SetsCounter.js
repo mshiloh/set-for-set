@@ -12,16 +12,6 @@ export default class SetsCounter extends Component {
         // this.addSet = this.addSet.bind(this);
     }
 
-    // addSet() {
-    //     if (setMatch === true) {
-    //         this.setState({
-    //             sets: this.state.sets + 1
-    //         });
-    //     } else {
-    //         return state;
-    //     }
-    // }
-
     newGameClick() {
         clearInterval(this.incrementer);
         this.setState({
