@@ -32,7 +32,7 @@ export default class SetsCounter extends Component {
     render() {
         return (
             <div className="collected-sets">
-                <h1>{(this.state.collectedSets)}</h1>
+                <h1>{(this.props.collectedSets)}</h1>
             </div>
         );
     }
