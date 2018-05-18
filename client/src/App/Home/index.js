@@ -15,7 +15,7 @@ scoresAxios.interceptors.request.use(config => {
 class Home extends React.Component {
     constructor(props) {
         super(props);
-        // console.log(this.props);
+        // console.log(props);
         this.state = {
             scores: [],
             errMsg: "",

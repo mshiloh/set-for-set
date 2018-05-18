@@ -46,7 +46,7 @@ class App extends Component {
 
                             <ProtectedRoute path="/profile" component={Profile} />
 
-                            <ProtectedRoute path="/game" component={Game} />
+                            <ProtectedRoute path="/game" component={Game} /> } />
                             {/* <Route path="/game" component={Game} /> */}
                         </Switch>
                 }
