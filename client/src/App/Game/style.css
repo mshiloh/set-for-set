@@ -22,11 +22,17 @@
 }
 
 .card {
+    border: 2px solid white;
     height: 28vw;
     width: 20vw;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+}
+
+.selected {
+    border: 8px solid yellow;
+    border-radius: 10%;
 }
 
 .stats {
@@ -48,7 +54,8 @@
     padding: 5px;
     width: 20%;
 }
-.message-for-set, 
+
+.message-for-set,
 .message-for-possible {
     width: 30%;
     font-size: 1.1em;
@@ -207,7 +214,6 @@ button {
     .message-for-possible {
         width: 100px;
     }
-
     .message-for-set p,
     .message-for-possible p {
         padding: 6px;
@@ -308,7 +314,8 @@ button {
 
 @media only screen and (min-width: 1367px) {
     .card:hover {
-        border: 2px solid red;
+        border: 5px solid yellow;
+        border-radius: 10%;
         cursor: pointer;
     }
     .message-for-set {
