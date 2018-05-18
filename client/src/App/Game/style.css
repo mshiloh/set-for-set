@@ -127,6 +127,10 @@
     margin: 5px;
 }
 
+.checkSet {
+    font-family: "Arcade"; 
+}
+
 .noSet {
     color: #CD5454;
     font-family: "Arcade";
