@@ -23,6 +23,7 @@ class Game extends Component {
             messageForState: "Find a SET or check the game rules!",
             collectedSets: 0,
             messageForSet: false,
+            messageForNotSet: false,
             userBestScore: 0
         }
         this.state = this.initialState;
@@ -128,7 +129,8 @@ class Game extends Component {
                             setTimeout(() => {
                                 this.setState(prevState => {
                                     return {
-                                        messageForSet: false
+                                        messageForSet: false,
+                                        messageForNotSet: true
                                     }
                                 });
                             }, 3000)
@@ -152,7 +154,7 @@ class Game extends Component {
     switchMessage = () => {
         this.setState(prevState => {
             return {
-                messageForState: "Good job! Thats a set"
+                messageForState: "Good job! That's a set!"
             }
         });
     }
@@ -182,7 +184,7 @@ class Game extends Component {
 
                     <div className="stats">
                         <div className="message-for-set">
-                            {!messageForSet ? <p className="noSet">"No SET yet!"</p>
+                            {!messageForSet ? <p className="noSet"></p>
                                 : <p className="yesSet">"Good, job! That's a SET!"</p>}
                         </div>
                         <div className="sets-container">

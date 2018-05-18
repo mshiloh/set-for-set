@@ -22,17 +22,21 @@
 }
 
 .card {
-    border: 2px solid white;
-    height: 28vw;
-    width: 20vw;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
+    cursor: pointer;
+    border: 4px solid black;
+    border-radius: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 28vw;
+    width: 25vw;
 }
 
 .selected {
-    border: 8px solid yellow;
-    border-radius: 10%;
+    border: 10px solid yellow;
+    border-radius: 12px;
 }
 
 .stats {

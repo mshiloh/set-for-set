@@ -4,38 +4,50 @@
 }
 
 .welcome {
-    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    padding-bottom: 60px;
+    color:#9A5EB2;
+    font-size: 8vw;
 }
 
 .userName {
     text-decoration: underline;
-    text-transform: capitalize;
+    color:#9A5EB2;
+    font-family: "Arcade";
+    font-size: 12vw;
 }
 
 .userName:hover {
     color: blue;
 }
 
-.scores-wrapper {
+.scores-container {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
+    align-items: center;
+    padding: 20vw;
+    width: 100%;
 }
 
-.rank {
+.top-title {
     font-weight: bold;
     padding-left: 15px;
     padding-top: 5px;
-    text-transform: uppercase;
-    font-size: 1.5em;
+    font-size: 8vw;
 }
-
 .one-score {
+    background: #75AA75;
+    color: white;
     padding: 20px;
-    text-transform: capitalize;
+    font-size: 6vw;
+
 }
 
-li h3 {
-    color: green;
-    font-size: 1.4em;
+.player {
+    font-weight: bold;
 }
