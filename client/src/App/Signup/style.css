@@ -8,6 +8,7 @@
     height: 100vw;
     background-repeat: no-repeat;
     color: white;
+    border: 0;
 }
 
 .signup-form-container {
@@ -20,34 +21,37 @@
 }
 
 .signup-head {
-    font-family: "Press Start K";
+    /* font-family: "Press Start K"; */
     color: #004D05;
     margin: .7vh;
     margin: 20px;  
     padding: 20px;  
     padding-top: 15px;    
-    font-size: 6vw;
+    font-size: 12vw;
 }
 
 .signup-form-input {
-    width: 70vw;
+    width: 80vw;
     padding: 5px;
     margin: .6vh;
-    
+    font-size: 5vw;
 }
 
 .signup-butt {
-    margin: .5vh;    
-    padding: 10px;    
-    font-size: 3.3vw;
-    font-size: 3.3vw;
-    background-color: #9A5EB2;
+    font-family: "Arcade";
+    margin: .5vh;
+    padding: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 3vw;
+    border-radius: 10%;
+    width: 400px;
 }
 
 .already-account, .signup-login {
-    padding: 5px;
+    padding: 10px;
     margin: .2vh;
-    font-size: 3.3vw;
+    font-size: 4vw;
 }
 
 .signup-login:hover {
