@@ -23,7 +23,7 @@ class Game extends Component {
             messageForState: "Find a SET or check the game rules!",
             collectedSets: 0,
             messageForSet: false,
-            // userBestScore: props.bestScore
+            userBestScore: 0
         }
         this.state = this.initialState;
     }
