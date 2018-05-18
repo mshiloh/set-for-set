@@ -93,7 +93,7 @@ export default class Timer extends Component {
             : ""
           )}
           {this.props.trackCards === 0 ? "" :
-            <button className="pause-game" onClick={this.props.addCards}>Get 3 New Cards</button>}
+            <button className="pause-game" onClick={this.props.addCards}>REPLACE 3 CARDS</button>}
           <button className="pause-game" onClick={this.pauseClick}>PAUSE</button>
           <button className="end-game" onClick={this.finishGameClick}>END GAME & SAVE</button>
         </div>

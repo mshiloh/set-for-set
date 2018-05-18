@@ -28,7 +28,7 @@
     margin: 20px;  
     padding: 20px;  
     padding-top: 15px;    
-    font-size: 6vw;
+    font-size: 10vw;
 }
 
 .login-form-input {
@@ -44,19 +44,21 @@
     padding: 10px;
     padding-left: 15px;
     padding-right: 15px;
-    font-size: vw;
+    font-size: 3vw;
+    border-radius: 10%;
 }
 
 .no-account,
 .login-signup {
-    padding: 5px;
+    padding: 10px;
     margin: .2vh;
-    font-size: 3.3vw;
+    font-size: 4vw;
     
 }
 
 .login-signup {
     color: black;
+    font-size: 4vw;
 }
 
 .login-login:hover {
