@@ -3,8 +3,10 @@ import React from "react";
 function Header(props) {
     return (
         <div className="header-wrapper">
-            <div className="header-container">
-            </div>
+            <img className="header-title" src="https://i.imgur.com/RzQneYD.png" alt="title"/>
+            {/* <div className="header-container">
+                {/* <div className="header-text"></div> */}
+            {/* </div> */}
         </div>
     )
 }

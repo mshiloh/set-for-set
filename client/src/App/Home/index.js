@@ -49,8 +49,8 @@ class Home extends React.Component {
             scoreOne.bestScore < scoreTwo.bestScore).map((player, i) =>
                 <li
                     key={player._id + i} className="one-score">
-                    <h4 className="player">{player.name}</h4>
-                    <h3 className="bestScore">{player.bestScore}</h3>
+                    <p className="player">{player.name} </p>
+                    <p className="best-score"> Sets: {player.bestScore}</p>
                 </li>
             );
 
@@ -68,16 +68,15 @@ class Home extends React.Component {
             return (
                 <div className="profile-wrapper">
                     <div className="welcome">
-                        <h2>Welcome, &nbsp; @{isAuthenticated ? <Link className="userName" to="/profile">{this.props.name}</Link> : null}!</h2>
+                        <h2 className="hello">Hello, {isAuthenticated ? <Link className="userName" to="/profile">{this.props.name}</Link> : null}!</h2>
                     </div>
-                    <div>
-                        <div className="rank">Rankings:</div>
-                        <ol className="scores-wrapper">
+                    <div className="scores-container">
+                        <div className="top-title">Leaderboard:</div>
+                        <ol>
                             {presentScores}
                         </ol>
                     </div>
-                </div>
-            )
+                </div>)
         }
     }
 }
