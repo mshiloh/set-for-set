@@ -153,7 +153,7 @@ class Game extends Component {
     render = () => {
         // console.log(this.state);
         const { cardsOnDeck, hideDeck,
-            collectedSets, messageForSet, selectedCardsForSet, userBestScore } = this.state;
+            collectedSets, messageForSet, selectedCardsForSet } = this.state;
         const presentGameLayout = cardsOnDeck.map((card, i) => <CardDisplay
             key={card._id + i} index={i}
             cardId={card._id}
