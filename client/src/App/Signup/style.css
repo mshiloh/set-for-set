@@ -20,9 +20,13 @@
 }
 
 .signup-head {
-    margin: .7vh;    
-    font-family: "Arcade";
+    font-family: "Press Start K";
     color: #004D05;
+    margin: .7vh;
+    margin: 20px;  
+    padding: 20px;  
+    padding-top: 15px;    
+    font-size: 6vw;
 }
 
 .signup-form-input {

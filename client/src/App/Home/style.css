@@ -1,6 +1,7 @@
 .profile-wrapper {
     padding: 20px;
     width: 100vw;
+    margin-bottom: 100px;
 
 }
 
@@ -9,45 +10,61 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    margin-bottom: 20px;
+    padding: 70px;
     color: #9A5EB2;
-    font-size: 8vw;
+    font-size: 5vw;
 }
 
 .userName {
     text-decoration: underline;
     color: #9A5EB2;
     font-family: "Arcade";
-    font-size: 12vw;
+    font-size: 10vw;
 }
 
 .userName:hover {
     color: blue;
 }
 
-.scores-container {
+.scores-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* padding: 50px; */
+}
+
+.scores-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 50px;
+    padding-left: 100px;
     background: rgb(107, 156, 107);
-    margin-top: 10vw;
-    margin-left: 10vw;
-    margin-right: 10vw;
+    border-radius: 15%;
+    width: 80vw;
 }
 
 .top-title {
     font-weight: bold;
-    color: white;
-    padding-left: 15px;
-    padding-top: 5px;
-    font-size: 8vw;
+    /* margin-top: 50px; */
+    /* padding-left: 15px; */
+    /* padding-top: 5px; */
+    font-size: 6vw;
+}
+
+.scores-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
 }
 
 .one-score {
-    color: white;
     padding: 20px;
-    font-size: 6vw;
+    font-size: 5vw;
 }
 
 .player {

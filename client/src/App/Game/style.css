@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     overflow: visible;
-    padding-top: 20px;
+    padding: 20px;
     font-size: 3vw;
     width: 100vw;
 }
@@ -29,8 +29,10 @@
     border: 4px solid black;
     border-radius: 12px;
     margin: auto;
-    height: 28vw;
-    width: 21vw;
+    height: 23vw;
+    width: 16.8vw;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .selected {
@@ -46,7 +48,7 @@
     margin-top: 1vh;
     margin-bottom: 1vh;
     padding: 5px;
-    width: 100vw;
+    width: 100;
 }
 
 .sets-container {
@@ -94,6 +96,7 @@
     width: 12vw;
     font-size: 5vw;
     border-radius: 10%;
+    font-size: 3vw;
 }
 
 .timer-container {
@@ -104,7 +107,9 @@
     margin-left: 10px;
     padding: 5px;
     border-radius: 5px;
-    font-size: 4.5vw;
+    display: flex;
+    border-radius: 5px;
+    font-size: 3vw;
 }
 
 .butts-container {
@@ -113,7 +118,10 @@
     justify-content: space-evenly;
 }
 
-.pause-game, .start-game, .new-game {
+.pause-game,
+.start-game,
+.new-game,
+.end-game {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,8 +129,6 @@
     border-radius: 6px;
     font-size: 3vw;
     padding: 4px;
-    padding-left: 6px;
-    padding-right: 6px;
     margin: 5px;
 }
 
@@ -133,7 +139,7 @@
 
 /* Small Devices, Tablets */
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 555px) {
     .game-wrapper {
         padding: 20px;
         font-size: 3vw;

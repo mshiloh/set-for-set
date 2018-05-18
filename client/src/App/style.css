@@ -36,7 +36,7 @@
 }
 
 .header-title {
-    width: 100vw;
+    width: 80vw;
 }
 
 .nav-wrapper {
@@ -56,7 +56,7 @@ nav {
 a {
     color: white;
     text-decoration: none;
-    font-size: 4.5vw;
+    font-size: 3.5vw;
     
 }
 
@@ -81,14 +81,18 @@ footer {
     font-size: 2vw;
 }
 
+button {
+    cursor: pointer;
+}
+
 /* ---------------------------------------------------------------------------------------------------------------------------------------- */
 
 /* Extra Small Devices, Phones */
 
-/* @media only screen and (min-width: 600px) {
+@media only screen and (min-width: 550px) {
     nav {
-        padding: 5px;
-        font-size: 3vw;
+        padding: 10px;
+        font-size: 2.5vw;
     }
     .nav-wrapper {
         height: 6vw;
@@ -102,7 +106,7 @@ footer {
         padding-top: 5px;
         font-size: 1.5vw;
     }
-} */
+}
 
 /* Small Devices, Tablets */
 
