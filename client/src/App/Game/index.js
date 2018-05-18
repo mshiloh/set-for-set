@@ -15,7 +15,7 @@ import CardDisplay from "./CardDisplay.js";
 class Game extends Component {
     constructor(props) {
         super(props);
-        console.log(props);
+        // console.log(props);
         this.initialState = {
             fullDeck: [],
             currentCardIndex: 11,
@@ -83,10 +83,6 @@ class Game extends Component {
         }, () => {
             if (this.state.selectedCardsForSet.length === 3) {
                 const cardsForCheck = this.state.selectedCardsForSet;
-                //shoot a checkForSet function which will include the
-                // unselectingAllCards function
-                //shoot a fn that changes state or displays a message
-                // either "Nice - you got a set!" || "Nope, that's not a state!"
                 if (
                     ((cardsForCheck[0].number !== cardsForCheck[1].number &&
                         cardsForCheck[1].number !== cardsForCheck[2].number &&
