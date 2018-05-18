@@ -24,7 +24,9 @@ class Game extends Component {
             selectedCardsForSet: [],
             collectedSets: 0,
             messageForSet: false,
-            userBestScore: props.user.bestScore
+            userBestScore: props.user.bestScore, 
+            gameOn: false,
+            gameMessage: ""
         }
         this.state = this.initialState;
     }
@@ -34,7 +36,8 @@ class Game extends Component {
         this.setState(prevState => {
             return {
                 ...prevState,
-                collectedSets: 0
+                collectedSets: 0,
+                gameOn: true
             }
         });
     }
@@ -61,7 +64,8 @@ class Game extends Component {
     showDeckAfterPause = () => {
         this.setState(prevState => {
             return {
-                hideDeck: false
+                hideDeck: false,
+                gameOn: false
             }
         })
     }
@@ -153,7 +157,10 @@ class Game extends Component {
     render = () => {
         // console.log(this.state);
         const { cardsOnDeck, hideDeck,
-            collectedSets, messageForSet, selectedCardsForSet } = this.state;
+            collectedSets, messageForSet, 
+            selectedCardsForSet, fullDeck, gameMessage,
+            gameOn,
+            currentCardIndex } = this.state;
         const presentGameLayout = cardsOnDeck.map((card, i) => <CardDisplay
             key={card._id + i} index={i}
             cardId={card._id}
@@ -175,17 +182,21 @@ class Game extends Component {
                         </div>
                     }
 
-                    <div className="stats-container">
-                        <div className="stats">
 
-                            <div className="sets-container">
-                                <p className="sets-title"> SETS</p>
-                                <SetsCounter collectedSets={collectedSets} className="collected-sets" />
-                            </div>
-                            <div className="timer-container">
-                                <Timer changeBestScoreUser={this.changeBestScoreUser}
-                                    showDeckAfterPause={this.showDeckAfterPause} pauseAndHideDeck={this.pauseAndHideDeck} dealingCards={this.dealingCards} className="timer" placeholder="00:00"></Timer>
-                            </div>
+                    <div className="stats">
+                        <div className="message-for-set">
+                            {/* {!messageForSet ? <p className="noSet">This is not a SET!</p>
+                                : <p className="yesSet">Good, job! That's a SET!</p>} */}
+                            {!messageForSet && gameOn ? <p className="checkSet">Cards left: {fullDeck.length - (currentCardIndex + 1)}</p>
+                                : <p className="checkSet">{gameMessage}</p>}
+                        </div>
+                        <div className="sets-container">
+                            <p className="sets-title"> SETS</p>
+                            <SetsCounter collectedSets={collectedSets} className="collected-sets" />
+                        </div>
+                        <div className="timer-container">
+                            <Timer changeBestScoreUser={this.changeBestScoreUser}
+                                showDeckAfterPause={this.showDeckAfterPause} pauseAndHideDeck={this.pauseAndHideDeck} dealingCards={this.dealingCards} className="timer" placeholder="00:00"></Timer>
                         </div>
                     </div>
                     <div className="message-for-set">
