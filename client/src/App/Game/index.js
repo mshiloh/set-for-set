@@ -137,14 +137,13 @@ class Game extends Component {
                             setTimeout(() => {
                                 this.setState(prevState => {
                                     return {
-                                        messageForSet: false,
-                                        messageForNotSet: true
+                                        messageForSet: false
                                     }
                                 });
                             }, 3000)
                     );
                 } else {
-                    // console.log("NO SET FOUND");
+                    console.log("NO SET FOUND");
                     this.setState({ selectedCardsForSet: [] });
                 }
             }
@@ -176,20 +175,22 @@ class Game extends Component {
                         </div>
                     }
 
+                    <div className="stats-container">
+                        <div className="stats">
 
-                    <div className="stats">
-                        <div className="message-for-set">
-                            {!messageForSet ? <p className="noSet">No SET yet!</p>
-                                : <p className="yesSet">Good, job! That's a SET!</p>}
+                            <div className="sets-container">
+                                <p className="sets-title"> SETS</p>
+                                <SetsCounter collectedSets={collectedSets} className="collected-sets" />
+                            </div>
+                            <div className="timer-container">
+                                <Timer changeBestScoreUser={this.changeBestScoreUser}
+                                    showDeckAfterPause={this.showDeckAfterPause} pauseAndHideDeck={this.pauseAndHideDeck} dealingCards={this.dealingCards} className="timer" placeholder="00:00"></Timer>
+                            </div>
                         </div>
-                        <div className="sets-container">
-                            <p className="sets-title"> SETS</p>
-                            <SetsCounter collectedSets={collectedSets} className="collected-sets" />
-                        </div>
-                        <div className="timer-container">
-                            <Timer changeBestScoreUser={this.changeBestScoreUser}
-                                showDeckAfterPause={this.showDeckAfterPause} pauseAndHideDeck={this.pauseAndHideDeck} dealingCards={this.dealingCards} className="timer" placeholder="00:00"></Timer>
-                        </div>
+                    </div>
+                    <div className="message-for-set">
+                        {!messageForSet ? <p className="noSet">Click to select the cards for your SET</p>
+                            : <p className="yesSet">Great job, that's a SET (:</p>}
                     </div>
                 </div>
             </div>

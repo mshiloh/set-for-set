@@ -1,6 +1,7 @@
 .profile-wrapper {
     padding: 20px;
     width: 100vw;
+
 }
 
 .welcome {
@@ -9,14 +10,13 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    padding-bottom: 60px;
-    color:#9A5EB2;
+    color: #9A5EB2;
     font-size: 8vw;
 }
 
 .userName {
     text-decoration: underline;
-    color:#9A5EB2;
+    color: #9A5EB2;
     font-family: "Arcade";
     font-size: 12vw;
 }
@@ -30,22 +30,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20vw;
-    width: 100%;
+    background: rgb(107, 156, 107);
+    margin-top: 10vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
 }
 
 .top-title {
     font-weight: bold;
+    color: white;
     padding-left: 15px;
     padding-top: 5px;
     font-size: 8vw;
 }
+
 .one-score {
-    background: #75AA75;
     color: white;
     padding: 20px;
     font-size: 6vw;
-
 }
 
 .player {

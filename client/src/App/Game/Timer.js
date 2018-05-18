@@ -78,18 +78,18 @@ export default class Timer extends Component {
           {(this.state.secsPast !== 0 &&
             this.incrementer === this.state.lastIncrementer
             ?
-            <div>
-              <button className="start-game" onClick={this.restartTmer}>Unpause</button>
-              <button className="new-game" onClick={this.newGameClick}>New Game</button>
+            <div className="game-butts">
+              <button className="start-game" onClick={this.restartTmer}>RESUME</button>
+              <button className="new-game" onClick={this.newGameClick}>NEW GAME</button>
             </div>
             : null
           )}
           {(this.state.secsPast === 0
-            ? <button className="start-game" onClick={this.startClick}>Start</button>
+            ? <button className="start-game" onClick={this.startClick}>START GAME</button>
             : ""
           )}
-          <button className="pause-game" onClick={this.pauseClick}>Pause</button>
-          <button className="pause-game" onClick={this.finishGameClick}>Finish</button>
+          <button className="pause-game" onClick={this.pauseClick}>PAUSE</button>
+          <button className="pause-game" onClick={this.finishGameClick}>END GAME</button>
         </div>
       </div>
 
