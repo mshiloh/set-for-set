@@ -91,7 +91,7 @@ export default class Timer extends Component {
             : ""
           )}
           <button className="pause-game" onClick={this.pauseClick}>PAUSE</button>
-          <button className="pause-game" onClick={this.finishGameClick}>END GAME/SAVE SCORE</button>
+          <button className="end-game" onClick={this.finishGameClick}>END GAME</button>
         </div>
       </div>
 

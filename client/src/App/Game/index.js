@@ -208,7 +208,7 @@ class Game extends Component {
                 <div className="game-layout">
                     {hideDeck ?
                         <div className="cards-layout">
-                            <p>Pausing!</p>
+                            <p>Click 'RESUME' to continue playing.</p>
                         </div>
                         :
                         <div className="cards-layout">

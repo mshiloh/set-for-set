@@ -18,7 +18,7 @@
     font-weight: 900;
     padding: 10px;
     text-align: center;
-    font-size: 9vw;
+    font-size: 12vw;
 }
 
 .rules-subhead {
@@ -28,7 +28,7 @@
     padding: 10px;
     text-align: center;
     padding-bottom: 30px;
-    font-size: 3.5vw;
+    font-size: 5vw;
 }
 
 .rules-section-head {
@@ -53,9 +53,10 @@
     width: 70vw;
 }
 
+/*
 /* Small Devices, Tablets */
 
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
     .rules-wrapper {
         padding: 20px;
         padding-left: 70px;
@@ -83,11 +84,11 @@
         width: 60vw;
         height: auto;
     }
-}
+} */
 
 /* Medium Devices, Desktops */
 
-@media only screen and (min-width: 992px) {
+/* @media only screen and (min-width: 992px) {
     .rules-wrapper {
         padding: 20px;
         padding-left: 70px;
@@ -115,10 +116,10 @@
         width: 50vw;
         height: auto;
     }
-}
+} */
 
 /* Large Devices, Wide Screens */
-
+/* 
 @media only screen and (min-width: 1200px) {
     .rules-wrapper {
         padding: 20px;
@@ -148,10 +149,10 @@
         width: 45vw;
         height: auto;
     }
-}
+} */
 
 /* Extra-Large Devices & Wide Screens */
-
+/* 
 @media only screen and (min-width: 1500px) {
     .rules-wrapper {
         padding: 20px;
@@ -181,4 +182,4 @@
         margin-bottom: 10px;
         width: 35vw;
     }
-}
+} */

@@ -22,25 +22,29 @@
 }
 
 .login-head {
-    font-size: 6vw;
+    /* font-family: "Press Start K"; */
+    color: #004D05;
     margin: .7vh;
-    margin: 20px;    
+    margin: 20px;  
+    padding: 20px;  
     padding-top: 15px;    
+    font-size: 6vw;
 }
 
 .login-form-input {
     width: 80vw;
     padding: 5px;
     margin: .6vh;
-    font-size: 3vw;
+    font-size: 5vw;
 }
 
 .login-butt {
+    font-family: "Press Start K";
     margin: .5vh;
-    padding: 3px;
+    padding: 10px;
     padding-left: 15px;
     padding-right: 15px;
-    font-size: 3.3vw;
+    font-size: vw;
 }
 
 .no-account,
@@ -61,7 +65,7 @@
 
 /* Medium Devices, Desktops */
 
-@media only screen and (min-width: 992px) {
+/* @media only screen and (min-width: 992px) {
     .login-head {
         margin: 20px;
         font-size: 5vw;
@@ -80,13 +84,13 @@
     .login-signup {
         padding: 5px;
         margin: 5px;
-        font-size: 2.5vw;
-    }
-}
+        font-size: 2.5vw; */
+    /* } */
+/* } */
 
 /* Large Devices, Wide Screens */
 
-@media only screen and (min-width: 1200px) {
+/* @media only screen and (min-width: 1200px) {
     .login-head {
         margin: 15px;
         font-size: 4vw;
@@ -106,12 +110,12 @@
         padding: 5px;
         margin: 5px;
         font-size: 1.9vw;
-    }
-}
+    } */
+/* } */
 
 /* Extra-Large Devices & Wide Screens */
 
-@media only screen and (min-width: 1500px) {
+/* @media only screen and (min-width: 1500px) {
     .login-form-wrapper {
         margin-bottom: 20px;
     }
@@ -134,5 +138,5 @@
         padding: 5px;
         margin: 5px;
         font-size: 1.5vw;
-    }
-}
+    } */
+/* } */
