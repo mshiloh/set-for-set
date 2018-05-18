@@ -1,6 +1,6 @@
 import React from "react";
 
-function GameDisplay(props) {
+function CardDisplay(props) {
     const { index, selectedCardsForSet, cardId } = props;
     const isSelected = selectedCardsForSet.find(card => card._id === cardId);
     return (
@@ -8,4 +8,4 @@ function GameDisplay(props) {
     )
 }
 
-export default GameDisplay
+export default CardDisplay

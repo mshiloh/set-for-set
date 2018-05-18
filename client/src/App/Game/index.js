@@ -6,7 +6,7 @@ import { editUser } from "../../redux/auth.js";
 import shuffler from "../../helpers/shuffler.js";
 import SetsCounter from "./SetsCounter";
 import Timer from "./Timer";
-import GameDisplay from "./GameDisplay.js";
+import CardDisplay from "./CardDisplay.js";
 
 // import { attributes } from "./../../helpers/cardCreater.js";
 // import { allDifferent, allTheSame } from "./../../helpers/allSameAllDiff.js";
@@ -158,7 +158,7 @@ class Game extends Component {
         // console.log(this.state);
         const { cardsOnDeck, hideDeck,
             collectedSets, messageForSet, selectedCardsForSet, userBestScore } = this.state;
-        const presentGameLayout = cardsOnDeck.map((card, i) => <GameDisplay
+        const presentGameLayout = cardsOnDeck.map((card, i) => <CardDisplay
             key={card._id + i} index={i}
             cardId={card._id}
             selectingCard={this.selectingCard}
@@ -182,8 +182,8 @@ class Game extends Component {
 
                     <div className="stats">
                         <div className="message-for-set">
-                            {!messageForSet ? <p className="noSet">"No SET yet!"</p>
-                                : <p className="yesSet">"Good, job! That's a SET!"</p>}
+                            {!messageForSet ? <p className="noSet">No SET yet!</p>
+                                : <p className="yesSet">Good, job! That's a SET!</p>}
                         </div>
                         <div className="sets-container">
                             <p className="sets-title"> SETS</p>
