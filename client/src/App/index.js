@@ -24,7 +24,7 @@ class App extends Component {
         this.props.verify();
     }
     render() {
-        const { isAuthenticated, loading } = this.props;
+        const { isAuthenticated, loading, bestScore } = this.props;
         return (
             <div className="app-wrapper">
                 <Header />
@@ -46,7 +46,7 @@ class App extends Component {
 
                             <ProtectedRoute path="/profile" component={Profile} />
 
-                            <ProtectedRoute path="/game" component={Game} />
+                            <ProtectedRoute path="/game" component={Game} /> } />
                             {/* <Route path="/game" component={Game} /> */}
                         </Switch>
                 }

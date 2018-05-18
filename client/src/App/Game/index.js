@@ -52,7 +52,14 @@ class Game extends Component {
     pauseAndHideDeck = () => {
         this.setState(prevState => {
             return {
-                hideDeck: prevState.hideDeck
+                hideDeck: true
+            }
+        })
+    }
+    showDeckAfterPause = () => {
+        this.setState(prevState => {
+            return {
+                hideDeck: false
             }
         })
     }
@@ -141,38 +148,41 @@ class Game extends Component {
         });
     }
 
-    unselectingAllCards = () => {
-        this.setState(prevState => {
-            return {
-                selectedCardsForSet: this.initialState.selectedCardsForSet
-            }
-        });
-    }
+    // unselectingAllCards = () => {
+    //     this.setState(prevState => {
+    //         return {
+    //             selectedCardsForSet: this.initialState.selectedCardsForSet
+    //         }
+    //     });
+    // }
 
-    switchMessage = () => {
-        this.setState(prevState => {
-            return {
-                messageForState: "Good job! Thats a set"
-            }
-        });
-    }
+    // switchMessage = () => {
+    //     this.setState(prevState => {
+    //         return {
+    //             messageForState: "Good job! Thats a set"
+    //         }
+    //     });
+    // }
 
     render = () => {
-        console.log(this.state);
+        // console.log(this.state);
         const { cardsOnDeck, hideDeck, messageForState,
             collectedSets, messageForSet, selectedCardsForSet } = this.state;
         const presentGameLayout = cardsOnDeck/*.filter((card, i) => i < 12)*/.map((card, i) => <GameDisplay
             key={card._id + i} index={i}
             cardId={card._id}
             selectingCard={this.selectingCard}
-            selectedCardsForSet = {selectedCardsForSet}
+            selectedCardsForSet={selectedCardsForSet}
             {...card} />)
 
         return (
             <div className="game-wrapper">
 
                 <div className="game-layout">
-                    {hideDeck ? ""
+                    {hideDeck ?
+                        <div className="cards-layout">
+                            <p>Pausing!</p>
+                        </div>
                         :
                         <div className="cards-layout">
                             {presentGameLayout}
@@ -190,13 +200,10 @@ class Game extends Component {
                             <SetsCounter collectedSets={collectedSets} className="collected-sets" />
                         </div>
                         <div className="timer-container">
-                            <Timer pauseAndHideDeck={this.pauseAndHideDeck} dealingCards={this.dealingCards} className="timer" placeholder="00:00"></Timer>
+                            <Timer showDeckAfterPause={this.showDeckAfterPause} pauseAndHideDeck={this.pauseAndHideDeck} dealingCards={this.dealingCards} className="timer" placeholder="00:00"></Timer>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
         )
     }

@@ -37,14 +37,15 @@ export default class Timer extends Component {
         secsPast: this.state.secsPast + 1
       })
       , 1000);
+      this.props.showDeckAfterPause();
   }
 
-  pauseClick() {
+  pauseClick = () => {
     clearInterval(this.incrementer);
     this.setState({
       lastIncrementer: this.incrementer
     });
-    this.props.pauseAndHideDeck;
+    this.props.pauseAndHideDeck();
   }
 
   newGameClick() {
@@ -77,6 +78,7 @@ export default class Timer extends Component {
             : ""
           )}
           <button className="pause-game" onClick={this.pauseClick}>Pause</button>
+          <button className="pause-game" onClick={this.pauseClick}>Finish</button>
         </div>
       </div>
 
