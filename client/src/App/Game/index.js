@@ -13,6 +13,7 @@ import GameDisplay from "./GameDisplay.js";
 class Game extends Component {
     constructor(props) {
         super(props);
+        console.log(props);
         this.initialState = {
             fullDeck: [],
             currentCardIndex: 11,
@@ -21,7 +22,8 @@ class Game extends Component {
             selectedCardsForSet: [],
             messageForState: "Find a SET or check the game rules!",
             collectedSets: 0,
-            messageForSet: false
+            messageForSet: false,
+            userBestScore: 0
         }
         this.state = this.initialState;
     }
@@ -43,8 +45,6 @@ class Game extends Component {
                     cardsOnDeck: shuffledCards.slice(0, 12)
                 }
             }, () => {
-                console.log(this.state.cardsOnDeck)
-                // console.log(this.state.fullDeck)
             }
             );
     }
@@ -60,8 +60,11 @@ class Game extends Component {
     selectingCard = (indexSelectedCard) => {
         const { fullDeck, isMatch } = this.state;
         this.setState(prevState => {
+            if (prevState.selectedCardsForSet.find(card => card._id === prevState.cardsOnDeck[indexSelectedCard]._id)) return {
+                selectedCardsForSet: prevState.selectedCardsForSet.filter(card => card._id !== prevState.cardsOnDeck[indexSelectedCard]._id)
+            }
             return {
-                selectedCardsForSet: [...prevState.selectedCardsForSet, fullDeck[indexSelectedCard]]
+                selectedCardsForSet: [...prevState.selectedCardsForSet, prevState.cardsOnDeck[indexSelectedCard]]
             }
         }, () => {
             if (this.state.selectedCardsForSet.length === 3) {
@@ -115,7 +118,7 @@ class Game extends Component {
 
                     this.setState(prevState => {
                         return {
-                            cardsOnDeck: [...newDeck, ...fullDeck.slice((currentCardIndex + 1), (currentCardIndex + 4))],
+                            cardsOnDeck: [...newDeck, ...prevState.fullDeck.slice((currentCardIndex + 1), (currentCardIndex + 4))],
                             currentCardIndex: prevState.currentCardIndex + 3,
                             collectedSets: prevState.collectedSets + 1,
                             selectedCardsForSet: [],
@@ -135,7 +138,6 @@ class Game extends Component {
                     this.setState({ selectedCardsForSet: [] });
                 }
             }
-            // console.log(this.state.selectedCardsForSet);
         });
     }
 
@@ -156,13 +158,14 @@ class Game extends Component {
     }
 
     render = () => {
-
+        console.log(this.state);
         const { cardsOnDeck, hideDeck, messageForState,
-            collectedSets, messageForSet } = this.state;
+            collectedSets, messageForSet, selectedCardsForSet } = this.state;
         const presentGameLayout = cardsOnDeck/*.filter((card, i) => i < 12)*/.map((card, i) => <GameDisplay
             key={card._id + i} index={i}
             cardId={card._id}
             selectingCard={this.selectingCard}
+            selectedCardsForSet = {selectedCardsForSet}
             {...card} />)
 
         return (
