@@ -24,7 +24,7 @@ class App extends Component {
         this.props.verify();
     }
     render() {
-        const { isAuthenticated, loading, bestScore } = this.props;
+        const { isAuthenticated, loading } = this.props;
         return (
             <div className="app-wrapper">
                 <Header />
