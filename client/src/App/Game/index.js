@@ -23,9 +23,9 @@ class Game extends Component {
             hideDeck: false,
             selectedCardsForSet: [],
             collectedSets: 0,
-            messageForSet: false,
-            userBestScore: props.user.bestScore, 
+            userBestScore: props.user.bestScore,
             gameOn: false,
+            messageForSet: false,
             gameMessage: ""
         }
         this.state = this.initialState;
@@ -64,8 +64,16 @@ class Game extends Component {
     showDeckAfterPause = () => {
         this.setState(prevState => {
             return {
+                hideDeck: false
+            }
+        })
+    }
+    endGame = () => {
+        this.setState(prevState => {
+            return {
                 hideDeck: false,
-                gameOn: false
+                gameOn: false,
+                cardsOnDeck: this.initialState.cardsOnDeck
             }
         })
     }
@@ -74,6 +82,16 @@ class Game extends Component {
         if (this.state.userBestScore < this.state.collectedSets) {
             this.props.editUser(this.props.user._id, { bestScore: this.state.collectedSets });
         }
+    }
+
+    addCards = () => {
+        this.setState(prevState => {
+            return {
+                hideDeck: false,
+                gameOn: false,
+                cardsOnDeck: this.initialState.cardsOnDeck
+            }
+        })
     }
 
     selectingCard = (indexSelectedCard) => {
@@ -135,20 +153,36 @@ class Game extends Component {
                             currentCardIndex: prevState.currentCardIndex + 3,
                             collectedSets: prevState.collectedSets + 1,
                             selectedCardsForSet: [],
-                            messageForSet: true
+                            messageForSet: true,
+                            gameMessage: "Good, job! That's a SET!"
                         }
                     }, () =>
                             setTimeout(() => {
                                 this.setState(prevState => {
                                     return {
-                                        messageForSet: false
+                                        messageForSet: this.initialState.messageForSet,
+                                        gameMessage: this.initialState.gameMessage
                                     }
                                 });
-                            }, 3000)
+                            }, 2000)
                     );
                 } else {
                     console.log("NO SET FOUND");
-                    this.setState({ selectedCardsForSet: [] });
+                    this.setState(prevState => {
+                        return {
+                            selectedCardsForSet: this.initialState.selectedCardsForSet,
+                            messageForSet: true,
+                            gameMessage: "This is not a SET!"
+                        }
+                    }, () =>
+                            setTimeout(() => {
+                                this.setState(prevState => {
+                                    return {
+                                        messageForSet: this.initialState.messageForSet,
+                                        gameMessage: this.initialState.gameMessage
+                                    }
+                                });
+                            }, 2000))
                 }
             }
         });
@@ -157,7 +191,7 @@ class Game extends Component {
     render = () => {
         // console.log(this.state);
         const { cardsOnDeck, hideDeck,
-            collectedSets, messageForSet, 
+            collectedSets, messageForSet,
             selectedCardsForSet, fullDeck, gameMessage,
             gameOn,
             currentCardIndex } = this.state;
@@ -182,13 +216,10 @@ class Game extends Component {
                         </div>
                     }
 
-
                     <div className="stats">
                         <div className="message-for-set">
-                            {/* {!messageForSet ? <p className="noSet">This is not a SET!</p>
-                                : <p className="yesSet">Good, job! That's a SET!</p>} */}
                             {!messageForSet && gameOn ? <p className="checkSet">Cards left: {fullDeck.length - (currentCardIndex + 1)}</p>
-                                : <p className="checkSet">{gameMessage}</p>}
+                                : <p style={{ backgroundColor: "yellow" }} className="checkSet">{gameMessage}</p>}
                         </div>
                         <div className="sets-container">
                             <p className="sets-title"> SETS</p>
@@ -196,12 +227,9 @@ class Game extends Component {
                         </div>
                         <div className="timer-container">
                             <Timer changeBestScoreUser={this.changeBestScoreUser}
+                                endGame={this.endGame}
                                 showDeckAfterPause={this.showDeckAfterPause} pauseAndHideDeck={this.pauseAndHideDeck} dealingCards={this.dealingCards} className="timer" placeholder="00:00"></Timer>
                         </div>
-                    </div>
-                    <div className="message-for-set">
-                        {!messageForSet ? <p className="noSet">Click to select the cards for your SET</p>
-                            : <p className="yesSet">Great job, that's a SET (:</p>}
                     </div>
                 </div>
             </div>

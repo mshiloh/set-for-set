@@ -25,7 +25,7 @@ function Nav(props) {
                 {/* <div className="nav-link"><Link to="/game">Game</Link></div> */}
 
                 <div className="nav-link"><Link to="/rules/">How to Play</Link></div>
-                {isAuthenticated ? <div className="logout" className="nav-link"><Link to="/login"  onClick={props.logout} >Log Out</Link></div> : null}
+                {isAuthenticated ? <div className="nav-link logout" className="nav-link"><Link to="/login"  onClick={props.logout} >Log Out</Link></div> : null}
             </nav>
         </div>
     )

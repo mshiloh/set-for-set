@@ -18,7 +18,7 @@
 .cards-layout {
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
+    width: 100%;
 }
 
 .card {
@@ -28,10 +28,9 @@
     cursor: pointer;
     border: 4px solid black;
     border-radius: 12px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: auto;
     height: 28vw;
-    width: 25vw;
+    width: 21vw;
 }
 
 .selected {
@@ -129,16 +128,7 @@
 
 .checkSet {
     border-radius: 15%;
-}
-
-.noSet {
-    color: #CD5454;
-    font-family: "Arcade";
-}
-
-.yesSet {
-    color: #004D05;
-    font-family: "Arcade";
+    /* padding: 3px; */
 }
 
 /* Small Devices, Tablets */
@@ -226,8 +216,8 @@
     }
     .message-for-set p,
     .message-for-possible p {
-        padding: 6px;
         line-height: 40px;
+        font-size: 0.5em;
     }
     .sets-title {
         font-weight: 800;
@@ -292,6 +282,10 @@
     .sets-title {
         font-weight: 800;
         font-size: 3.5vw;
+    }
+    .message-for-set p,
+    .message-for-possible p {
+        line-height: 60px;
     }
     .collected-sets {
         display: flex;
