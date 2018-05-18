@@ -47,7 +47,6 @@ class Game extends Component {
             return this.setState(prevState => {
                 const shuffledCards = shuffler(this.props.cards.data);
                 return {
-                    // ...prevState,
                     fullDeck: shuffledCards,
                     cardsOnDeck: shuffledCards.slice(0, 12)
                 }
@@ -71,9 +70,8 @@ class Game extends Component {
     endGame = () => {
         this.setState(prevState => {
             return {
-                hideDeck: false,
-                gameOn: false,
-                cardsOnDeck: this.initialState.cardsOnDeck
+                ...this.initialState,
+                fullDeck: prevState.fullDeck
             }
         })
     }
@@ -85,13 +83,22 @@ class Game extends Component {
     }
 
     addCards = () => {
+        const { selectedCardsForSet, cardsOnDeck, currentCardIndex } = this.state;
+        const for12 = Math.floor(Math.random() * 12);
+        const for11 = Math.floor(Math.random() * 11);
+        const for10 = Math.floor(Math.random() * 10);
+        const newDeck = [...cardsOnDeck];
+        newDeck.splice(for12, 1);
+        newDeck.splice(for11, 1);
+        newDeck.splice(for10, 1);
+
         this.setState(prevState => {
             return {
-                hideDeck: false,
-                gameOn: false,
-                cardsOnDeck: this.initialState.cardsOnDeck
+                cardsOnDeck: [...newDeck, ...prevState.fullDeck.slice((currentCardIndex + 1), (currentCardIndex + 4))],
+                currentCardIndex: prevState.currentCardIndex + 3,
+                selectedCardsForSet: this.initialState.selectedCardsForSet
             }
-        })
+        });
     }
 
     selectingCard = (indexSelectedCard) => {
@@ -152,7 +159,7 @@ class Game extends Component {
                             cardsOnDeck: [...newDeck, ...prevState.fullDeck.slice((currentCardIndex + 1), (currentCardIndex + 4))],
                             currentCardIndex: prevState.currentCardIndex + 3,
                             collectedSets: prevState.collectedSets + 1,
-                            selectedCardsForSet: [],
+                            selectedCardsForSet: this.initialState.selectedCardsForSet,
                             messageForSet: true,
                             gameMessage: "Good, job! That's a SET!"
                         }
@@ -167,7 +174,7 @@ class Game extends Component {
                             }, 2000)
                     );
                 } else {
-                    console.log("NO SET FOUND");
+                    // console.log("NO SET FOUND");
                     this.setState(prevState => {
                         return {
                             selectedCardsForSet: this.initialState.selectedCardsForSet,
@@ -226,7 +233,9 @@ class Game extends Component {
                             <SetsCounter collectedSets={collectedSets} className="collected-sets" />
                         </div>
                         <div className="timer-container">
-                            <Timer changeBestScoreUser={this.changeBestScoreUser}
+                            <Timer trackCards={fullDeck.length - (currentCardIndex + 1)}
+                             addCards={this.addCards}
+                                changeBestScoreUser={this.changeBestScoreUser}
                                 endGame={this.endGame}
                                 showDeckAfterPause={this.showDeckAfterPause} pauseAndHideDeck={this.pauseAndHideDeck} dealingCards={this.dealingCards} className="timer" placeholder="00:00"></Timer>
                         </div>
