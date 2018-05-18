@@ -11,8 +11,9 @@ function ProfilePassEdit(props) {
                     name="password"
                     type="password"
                     placeholder="Change Password" />
-                <button className="signup-butt" type="submit">Change Password</button>
+
                 <button className="signup-butt" onClick={props.toggleIsEditing}>Back to Profile</button>
+                <button className="signup-butt" type="submit">Save New Password</button>
 
                 {props.errMsg && <p>{props.errMsg}</p>}
 

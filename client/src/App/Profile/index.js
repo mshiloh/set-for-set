@@ -33,10 +33,18 @@ class Profile extends Component {
     }
 
     toggleIsEditing = (event) => {
-        this.setState({ ...this.state, isEditing: !this.state.isEditing });
+        this.setState(prevState => {
+            return {
+                isEditing: !prevState.isEditing
+            }
+        });
     }
     toggleIsEditingPass = (event) => {
-        this.setState({ ...this.state, isEditingPass: !this.state.isEditingPass });
+        this.setState(prevState => {
+            return {
+                isEditingPass: !prevState.isEditingPass
+            }
+        });
     }
 
     handleChange = (e) => {
@@ -88,7 +96,7 @@ class Profile extends Component {
                         loading: false
                     }
                 })
-             })
+            })
             // .catch(err => { });
             .catch(err => {
                 this.setState(prevState => {
