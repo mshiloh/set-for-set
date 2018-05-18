@@ -118,17 +118,8 @@ button {
     margin: 5px;
 }
 
-.noSet,
-.yesSet {
+.checkSet {
     border-radius: 15%;
-}
-
-.noSet {
-    background-color: red;
-}
-
-.yesSet {
-    background-color: green;
 }
 
 /* Small Devices, Tablets */
