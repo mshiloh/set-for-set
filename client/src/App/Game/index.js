@@ -147,7 +147,7 @@ class Game extends Component {
                             }, 3000)
                     );
                 } else {
-                    // console.log("NO SET FOUND");
+                    console.log("NO SET FOUND");
                     this.setState({ selectedCardsForSet: [] });
                 }
             }
@@ -198,6 +198,10 @@ class Game extends Component {
                             <Timer changeBestScoreUser={this.changeBestScoreUser}
                                 showDeckAfterPause={this.showDeckAfterPause} pauseAndHideDeck={this.pauseAndHideDeck} dealingCards={this.dealingCards} className="timer" placeholder="00:00"></Timer>
                         </div>
+                    </div>
+                    <div className="message-for-set">
+                        {!messageForSet ? <p className="noSet">Click to select the cards for your SET</p>
+                            : <p className="yesSet">Great job, that's a SET (:</p>}
                     </div>
                 </div>
             </div>

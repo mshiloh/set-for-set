@@ -1,5 +1,13 @@
 .signup-form-wrapper {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("https://i.imgur.com/LGVMYT6.png");
+    background-position: center;
+    background-size: cover;
+    height: 100vw;
+    background-repeat: no-repeat;
+    color: white;
 }
 
 .signup-form-container {
@@ -12,8 +20,9 @@
 }
 
 .signup-head {
-    font-size: 6vw;
     margin: .7vh;    
+    font-family: "Arcade";
+    color: #004D05;
 }
 
 .signup-form-input {
@@ -28,6 +37,7 @@
     padding: 10px;    
     font-size: 3.3vw;
     font-size: 3.3vw;
+    background-color: #9A5EB2;
 }
 
 .already-account, .signup-login {

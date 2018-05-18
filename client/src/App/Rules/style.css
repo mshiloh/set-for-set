@@ -12,7 +12,9 @@
 }
 
 .rules-head {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Numans', sans-serif;
+    
+    /* font-family: "Roboto", sans-serif; */
     font-weight: 900;
     padding: 10px;
     text-align: center;
@@ -20,7 +22,9 @@
 }
 
 .rules-subhead {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Numans', sans-serif;
+    
+    /* font-family: "Roboto", sans-serif; */
     padding: 10px;
     text-align: center;
     padding-bottom: 30px;
