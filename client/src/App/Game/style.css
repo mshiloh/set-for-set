@@ -18,7 +18,7 @@
 .cards-layout {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    width: 80%;
 }
 
 .card {
@@ -31,8 +31,8 @@
     margin: auto;
     height: 23vw;
     width: 16.8vw;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    /* margin-top: 10px;
+    margin-bottom: 10px; */
 }
 
 .selected {
@@ -45,10 +45,6 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    padding: 5px;
-    width: 100;
 }
 
 .sets-container {
@@ -62,20 +58,10 @@
 
 .message-for-set,
 .message-for-possible {
-    width: 30%;
-    font-size: 1.1em;
+    font-size: 8vw;
     padding: 10px;
-    /* border: 3px solid black; */
     border-radius: 10%;
     text-align: center;
-}
-
-.message-for-set,
-.message-for-possible {
-    /* padding: 4px; */
-    /* text-align: left; */
-    font-size: 8vw;
-    width: 90vw;
 }
 
 .message-for-possible {
@@ -203,9 +189,9 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 1vh;
+        /* margin-top: 1vh;
         margin-bottom: 1vh;
-        width: auto;
+        width: auto; */
     }
     .sets-container {
         display: flex;
@@ -270,15 +256,7 @@
         height: 18vw;
         width: 12.5vw;
     }
-    .stats {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 1vh;
-        margin-bottom: 1vh;
-        width: auto;
-    }
+
     .sets-container {
         display: flex;
         flex-direction: column;
@@ -345,13 +323,7 @@
         height: 14vw;
         width: 10vw;
     }
-    .stats {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: auto;
-    }
+
     .sets-container {
         display: flex;
         flex-direction: column;
