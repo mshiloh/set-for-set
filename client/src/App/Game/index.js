@@ -233,7 +233,9 @@ class Game extends Component {
                             <SetsCounter collectedSets={collectedSets} className="collected-sets" />
                         </div>
                         <div className="timer-container">
-                            <Timer trackCards={fullDeck.length - (currentCardIndex + 1)}
+                            <Timer gameOn={gameOn}
+                            hideDeck={hideDeck}
+                            cardsAvailable={fullDeck.length - (currentCardIndex + 1)}
                              addCards={this.addCards}
                                 changeBestScoreUser={this.changeBestScoreUser}
                                 endGame={this.endGame}
