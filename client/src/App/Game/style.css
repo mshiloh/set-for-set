@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     overflow: visible;
-    padding: 20px;
+    padding: 10px;
     font-size: 3vw;
     width: 100vw;
 }
@@ -18,7 +18,7 @@
 .cards-layout {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    width: 95%;
 }
 
 .card {
@@ -29,10 +29,8 @@
     border: 4px solid black;
     border-radius: 12px;
     margin: auto;
-    height: 23vw;
-    width: 16.8vw;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    height: 28vw;
+    width: 20vw;
 }
 
 .selected {
@@ -45,10 +43,6 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    padding: 5px;
-    width: 100;
 }
 
 .sets-container {
@@ -62,20 +56,9 @@
 
 .message-for-set,
 .message-for-possible {
-    width: 30%;
-    font-size: 1.1em;
-    padding: 10px;
-    /* border: 3px solid black; */
+    font-size: 8vw;
     border-radius: 10%;
     text-align: center;
-}
-
-.message-for-set,
-.message-for-possible {
-    /* padding: 4px; */
-    /* text-align: left; */
-    font-size: 8vw;
-    width: 90vw;
 }
 
 .message-for-possible {
@@ -101,13 +84,10 @@
 
 .timer-container {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: row; */
     align-items: center;
     text-align: center;
-    margin-left: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    display: flex;
+    padding-top: 5px;
     border-radius: 5px;
     font-size: 3vw;
 }
@@ -116,6 +96,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    padding-left: 5px;
+    padding-right: 7px;
 }
 
 .pause-game,
@@ -134,7 +116,7 @@
 
 .checkSet {
     border-radius: 15%;
-    /* padding: 3px; */
+    font-size: 0.8em;
 }
 
 /* Small Devices, Tablets */
@@ -177,6 +159,13 @@
     }
 }
 
+@media only screen and (min-width: 765px) {
+    .cards-layout {
+        width: 80%;
+    }
+}
+
+
 /* Medium Devices, Desktops */
 
 @media only screen and (min-width: 992px) {
@@ -203,9 +192,9 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 1vh;
+        /* margin-top: 1vh;
         margin-bottom: 1vh;
-        width: auto;
+        width: auto; */
     }
     .sets-container {
         display: flex;
@@ -270,15 +259,7 @@
         height: 18vw;
         width: 12.5vw;
     }
-    .stats {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 1vh;
-        margin-bottom: 1vh;
-        width: auto;
-    }
+
     .sets-container {
         display: flex;
         flex-direction: column;
@@ -345,13 +326,7 @@
         height: 14vw;
         width: 10vw;
     }
-    .stats {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: auto;
-    }
+
     .sets-container {
         display: flex;
         flex-direction: column;
