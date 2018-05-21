@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     overflow: visible;
-    padding: 20px;
+    padding: 10px;
     font-size: 3vw;
     width: 100vw;
 }
@@ -18,7 +18,7 @@
 .cards-layout {
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
+    width: 95%;
 }
 
 .card {
@@ -29,10 +29,8 @@
     border: 4px solid black;
     border-radius: 12px;
     margin: auto;
-    height: 23vw;
-    width: 16.8vw;
-    /* margin-top: 10px;
-    margin-bottom: 10px; */
+    height: 28vw;
+    width: 20vw;
 }
 
 .selected {
@@ -59,7 +57,6 @@
 .message-for-set,
 .message-for-possible {
     font-size: 8vw;
-    padding: 10px;
     border-radius: 10%;
     text-align: center;
 }
@@ -87,13 +84,10 @@
 
 .timer-container {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: row; */
     align-items: center;
     text-align: center;
-    margin-left: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    display: flex;
+    padding-top: 5px;
     border-radius: 5px;
     font-size: 3vw;
 }
@@ -102,6 +96,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    padding-left: 5px;
+    padding-right: 7px;
 }
 
 .pause-game,
@@ -120,7 +116,7 @@
 
 .checkSet {
     border-radius: 15%;
-    /* padding: 3px; */
+    font-size: 0.8em;
 }
 
 /* Small Devices, Tablets */
@@ -162,6 +158,13 @@
         margin: 5px;
     }
 }
+
+@media only screen and (min-width: 765px) {
+    .cards-layout {
+        width: 80%;
+    }
+}
+
 
 /* Medium Devices, Desktops */
 

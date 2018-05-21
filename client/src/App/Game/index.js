@@ -232,7 +232,7 @@ class Game extends Component {
                             <p className="sets-title"> SETS</p>
                             <SetsCounter collectedSets={collectedSets} className="collected-sets" />
                         </div>
-                        <div className="timer-container">
+                        {/* <div className="timer-container"> */}
                             <Timer gameOn={gameOn}
                             hideDeck={hideDeck}
                             cardsAvailable={fullDeck.length - (currentCardIndex + 1)}
@@ -240,7 +240,7 @@ class Game extends Component {
                                 changeBestScoreUser={this.changeBestScoreUser}
                                 endGame={this.endGame}
                                 showDeckAfterPause={this.showDeckAfterPause} pauseAndHideDeck={this.pauseAndHideDeck} dealingCards={this.dealingCards} className="timer" placeholder="00:00"></Timer>
-                        </div>
+                        {/* </div> */}
                     </div>
                 </div>
             </div>
