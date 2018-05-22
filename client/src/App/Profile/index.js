@@ -160,7 +160,7 @@ class Profile extends Component {
                         <h4 className="signup-form-input" style={{ textTransform: "capitalize" }} >Name: {this.props.name}</h4>
                         <h4 className="signup-form-input">Email: {this.props.email}</h4>
                         <h4 className="signup-form-input">Best Score: {this.props.bestScore}</h4>
-                        <div style={{ display: "flex", flexDirection: "row" }}>
+                        <div className="buttProfile">
                             <button className="signup-butt" onClick={this.toggleIsEditing}>Edit Account</button>
                             <button className="signup-butt" onClick={this.toggleIsEditingPass}>Change Password</button>
                         </div>

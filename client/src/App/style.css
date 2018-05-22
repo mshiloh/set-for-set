@@ -6,12 +6,7 @@
 
 @font-face {
     font-family: "Arcade";
-    src: local("/Users/morgan/dev/set/client/src/App/ARCADE.TTF"), url("/Users/morgan/dev/set/client/src/App/ARCADE.TTF");
-}
-
-@font-face {
-    font-family: "Press Start K";
-    src: local("/Users/morgan/dev/set/client/src/App/prstartk.ttf"), url("/Users/morgan/dev/set/client/src/App/prstartk.ttf");
+    src: local("./ARCADE.TTF"), url("./ARCADE.TTF");
 }
 
 .app-wrapper {
@@ -39,15 +34,10 @@
     width: 80vw;
 }
 
-/* .nav-wrapper {
-  width: 100vw;  
-} */
-
 nav {
     grid-area: nav;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: center;
     background: #CD5454;
 }
 
@@ -56,7 +46,6 @@ a {
     text-decoration: none;
     font-size: 4vw;
     padding: 10px;
-    
 }
 
 footer {
@@ -78,6 +67,16 @@ footer {
 .copyright {
     padding-top: 5px;
     font-size: 2vw;
+}
+
+.noLine {
+    text-decoration: none;
+    color: auto;
+    font-size: 2.5vw;
+}
+.noLine:hover {
+    text-decoration: underline;
+    color: blue;
 }
 
 button {
@@ -111,13 +110,9 @@ button {
 /* Small Devices, Tablets */
 
 @media only screen and (min-width: 768px) {
-
-    nav {
-        padding: 10px;
-        font-size: 2.1vw;
-    }
-    .nav-wrapper {
-        height: 4.5vw;
+    a {
+        font-size: 3vw;
+        padding: 20px;
     }
     footer {
         padding: .6vw;
@@ -133,13 +128,19 @@ button {
 /* Medium Devices, Desktops */
 
 @media only screen and (min-width: 992px) {
- 
+    a {
+        font-size: 2.7vw;
+    }
     nav {
         padding: 5px;
         font-size: 2vw;
     }
     .nav-wrapper {
         height: 4vw;
+    }
+    .noLine {
+        font-size: 2vw;
+        padding: 10px;
     }
     footer {
         padding: .6vw;
@@ -155,10 +156,19 @@ button {
 /* Large Devices & Wide Screens */
 
 @media only screen and (min-width: 1200px) {
-  
-    nav {
-        padding: 5px;
-        font-size: 1.5vw;
+    .header-wrapper {
+        height: 18vh;
+    }
+    .header-title {
+        width: 45vw;
+    }
+    a {
+        font-size: 2vw;
+        padding: 50px;
+    }
+    .noLine {
+        font-size: 1vw;
+        padding: 10px;
     }
     .nav-wrapper {
         height: 3vw;

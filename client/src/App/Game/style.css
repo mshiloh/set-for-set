@@ -115,9 +115,8 @@
 }
 
 .checkSet {
-    border-radius: 5%;
     /* padding: 3px; */
-    border-radius: 15%;
+    border-radius: 10%;
     font-size: 0.8em;
 }
 
@@ -166,7 +165,6 @@
         width: 80%;
     }
 }
-
 
 /* Medium Devices, Desktops */
 
@@ -250,18 +248,13 @@
 /* Large Devices, Wide Screens */
 
 @media only screen and (min-width: 1200px) {
-    .game-wrapper {
-        padding-top: 30px;
-        padding-bottom: 30px;
-    }
     .cards-layout {
-        width: 60%;
+        width: 50%;
     }
     .card {
-        height: 18vw;
-        width: 12.5vw;
+        height: 15vw;
+        width: 10vw;
     }
-
     .sets-container {
         display: flex;
         flex-direction: column;
@@ -321,14 +314,6 @@
         padding-top: 30px;
         padding-bottom: 30px;
     }
-    .cards-layout {
-        width: 50%;
-    }
-    .card {
-        height: 14vw;
-        width: 10vw;
-    }
-
     .sets-container {
         display: flex;
         flex-direction: column;
@@ -363,5 +348,15 @@
     button {
         border-radius: 6px;
         font-size: 2vw;
+    }
+}
+
+@media only screen and (min-width: 2000px) {
+    .message-for-set{
+        font-size: 6vw;
+        width: 500px;
+    }
+    .message-for-set p{
+        line-height: 100px;
     }
 }

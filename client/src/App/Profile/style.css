@@ -1,5 +1,14 @@
 .signup-form-wrapper {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("https://i.imgur.com/LGVMYT6.png");
+    background-position: center;
+    background-size: cover;
+    height: 70vh;
+    background-repeat: no-repeat;
+    color: white;
+    border: 0;
 }
 
 .signup-form-container {
@@ -13,7 +22,6 @@
 
 .signup-head {
     font-size: 6vw;
-    margin: 20px;
     padding-top: 15px;
 }
 
@@ -21,27 +29,29 @@
     width: 70vw;
     font-size: 3vw;
     padding: 5px;
-    margin: 10px;
+}
+
+.buttProfile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .signup-butt {
     font-size: 3vw;
-    margin: 10px;
     padding: 10px;
+    width: 30%;
 }
-
-.already-account,
-.signup-login {
-    font-size: 3vw;
-    padding: 5px;
-    margin: 20px;
-}
-
-.signup-login:hover {
-    cursor: pointer;
-}
-
 
 .avatar {
     max-width: 170px;
+}
+
+@media only screen and (min-width: 1200px) {
+    .signup-butt {
+        font-size: 2vw;
+        padding: 0px;
+        width: 40%;
+        height: 70px;
+    }
 }

@@ -83,7 +83,7 @@ class Game extends Component {
     }
 
     addCards = () => {
-        const { selectedCardsForSet, cardsOnDeck, currentCardIndex } = this.state;
+        const { cardsOnDeck, currentCardIndex } = this.state;
         const for12 = Math.floor(Math.random() * 12);
         const for11 = Math.floor(Math.random() * 11);
         const for10 = Math.floor(Math.random() * 10);
@@ -232,7 +232,6 @@ class Game extends Component {
                             <p className="sets-title"> SETS</p>
                             <SetsCounter collectedSets={collectedSets} className="collected-sets" />
                         </div>
-                        {/* <div className="timer-container"> */}
                             <Timer gameOn={gameOn}
                             hideDeck={hideDeck}
                             cardsAvailable={fullDeck.length - (currentCardIndex + 1)}
@@ -240,7 +239,6 @@ class Game extends Component {
                                 changeBestScoreUser={this.changeBestScoreUser}
                                 endGame={this.endGame}
                                 showDeckAfterPause={this.showDeckAfterPause} pauseAndHideDeck={this.pauseAndHideDeck} dealingCards={this.dealingCards} className="timer" placeholder="00:00"></Timer>
-                        {/* </div> */}
                     </div>
                 </div>
             </div>
