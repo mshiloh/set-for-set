@@ -1,3 +1,7 @@
+
+/* MOST OF THE STYLING COMES FROM the 'LOGIN' css file
+ because of the naming of the classes (good enough for MVP) */
+
 .signup-form-wrapper {
     display: flex;
     justify-content: center;
@@ -5,7 +9,7 @@
     background: url("https://i.imgur.com/LGVMYT6.png");
     background-position: center;
     background-size: cover;
-    height: 100vw;
+    height: 69.6vh;
     background-repeat: no-repeat;
     color: white;
     border: 0;
@@ -23,23 +27,21 @@
 .signup-head {
     /* font-family: "Press Start K"; */
     color: #004D05;
-    margin: .7vh;
-    margin: 20px;  
-    padding: 20px;  
-    padding-top: 15px;    
+    padding: 20px;
+    padding-top: 15px;
     font-size: 12vw;
 }
 
 .signup-form-input {
     width: 80vw;
     padding: 5px;
-    margin: .6vh;
+    /* margin: .6vh; */
     font-size: 5vw;
 }
 
 .signup-butt {
     font-family: "Arcade";
-    margin: .5vh;
+    /* margin: .5vh; */
     padding: 20px;
     padding-left: 15px;
     padding-right: 15px;
@@ -48,9 +50,10 @@
     width: 400px;
 }
 
-.already-account, .signup-login {
+.already-account,
+.signup-login {
     padding: 10px;
-    margin: .2vh;
+    /* margin: .2vh; */
     font-size: 4vw;
 }
 
@@ -58,55 +61,52 @@
     cursor: pointer;
 }
 
-  /* Medium Devices, Desktops */
-  @media only screen and (min-width : 992px) {
+/* Medium Devices, Desktops */
+
+@media only screen and (min-width: 992px) {
     .signup-head {
-        margin: 20px;    
+        /* margin: 20px; */
         font-size: 5vw;
     }
-    
     .signup-form-input {
         width: 70vw;
         padding: 5px;
-        margin: 10px;
+        /* margin: 10px; */
         font-size: 2vw;
     }
-    
     .signup-butt {
-        padding: 10px;    
+        padding: 10px;
         font-size: 2.2vw;
     }
-    
-    .already-account, .signup-login {
+    .already-account,
+    .signup-login {
         padding: 5px;
-        margin: 5px;
+        /* margin: 5px; */
         font-size: 2.5vw;
     }
-
 }
 
 /* Large Devices, Wide Screens */
-@media only screen and (min-width : 1200px) {
+
+@media only screen and (min-width: 1200px) {
     .signup-head {
-        margin: 15px;    
+        /* margin: 15px; */
         font-size: 4vw;
     }
-    
     .signup-form-input {
         width: 70vw;
         padding: 5px;
-        margin: 10px;
+        /* margin: 10px; */
         font-size: 1.5vw;
     }
-    
     .signup-butt {
-        padding: 10px;    
+        padding: 10px;
         font-size: 1.6vw;
     }
-    
-    .already-account, .signup-login {
+    .already-account,
+    .signup-login {
         padding: 5px;
-        margin: 5px;
+        /* margin: 5px; */
         font-size: 1.9vw;
     }
 }
@@ -114,27 +114,25 @@
 /* Extra-Large Devices & Wide Screens */
 
 @media only screen and (min-width: 1500px) {
-    .signup-form-wrapper {
-        margin-bottom: 20px;        
-    }
+    /* .signup-form-wrapper {
+        margin-bottom: 20px;
+    } */
     .signup-head {
-        margin: 15px;    
+        /* margin: 15px; */
         font-size: 2.8vw;
     }
-    
     .signup-form-input {
         width: 70vw;
         padding: 5px;
         margin: 10px;
         font-size: 1vw;
     }
-    
     .signup-butt {
-        padding: 10px;    
+        padding: 10px;
         font-size: 1.3vw;
     }
-    
-    .already-account, .signup-login {
+    .already-account,
+    .signup-login {
         padding: 5px;
         margin: 5px;
         font-size: 1.5vw;

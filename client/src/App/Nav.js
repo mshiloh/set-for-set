@@ -11,21 +11,19 @@ function Nav(props) {
     return (
         <div className="nav-wrapper">
             <nav>
-                {isAuthenticated ? null : <div className="nav-link"><Link to="/"></Link></div>}
+                {isAuthenticated ? "" : <div className="nav-link"><Link to="/"></Link></div>}
 
-                {isAuthenticated ? null : <div className="nav-link"><Link to="/signup">Sign Up</Link></div>}
+                {isAuthenticated ? "" : <div className="nav-link"><Link to="/signup">Sign Up</Link></div>}
 
-                {isAuthenticated ? null : <div className="nav-link"><Link to="/login">Log In</Link></div>}
+                {isAuthenticated ? "" : <div className="nav-link"><Link to="/login">Log In</Link></div>}
 
 
-                {isAuthenticated ? <div className="nav-link"><Link to="/home">Home</Link></div> : null}
+                {isAuthenticated ? <div className="nav-link"><Link to="/home">Home</Link></div> : ""}
 
-                {isAuthenticated ? <div className="nav-link"><Link to="/game">Game</Link></div> : null}
-
-                {/* <div className="nav-link"><Link to="/game">Game</Link></div> */}
+                {isAuthenticated ? <div className="nav-link"><Link to="/game">Game</Link></div> : ""}
 
                 <div className="nav-link"><Link to="/rules/">How to Play</Link></div>
-                {isAuthenticated ? <div className="nav-link logout" className="nav-link"><Link to="/login"  onClick={props.logout} >Log Out</Link></div> : null}
+                {isAuthenticated ? <div className="nav-link logout"><Link to="/login"  onClick={props.logout} >Log Out</Link></div> : ""}
             </nav>
         </div>
     )

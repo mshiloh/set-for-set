@@ -5,11 +5,9 @@
     background: url("https://i.imgur.com/LGVMYT6.png");
     background-position: center;
     background-size: cover;
-    height: 100vw;
+    height: 69.6vh;
     background-repeat: no-repeat;
     color: white;
-    
-    
 }
 
 .login-form-container {
@@ -22,10 +20,10 @@
 }
 
 .login-head {
-    /* font-family: "Press Start K"; */
+    font-family: "Arcade";
     color: #004D05;
-    margin: .7vh;
-    margin: 20px;  
+    /* margin: .7vh;
+    margin: 20px;   */
     padding: 20px;  
     padding-top: 15px;    
     font-size: 10vw;
@@ -39,12 +37,12 @@
 }
 
 .login-butt {
-    font-family: "Press Start K";
+    font-family: "Arcade";
     margin: .5vh;
-    padding: 10px;
+    padding: 3px;
     padding-left: 15px;
     padding-right: 15px;
-    font-size: 3vw;
+    font-size: 7vw;
     border-radius: 10%;
 }
 
@@ -67,15 +65,19 @@
 
 /* Medium Devices, Desktops */
 
-/* @media only screen and (min-width: 992px) {
+@media only screen and (min-height: 812px) {
+    .login-form-wrapper {
+        height: 75vh;
+    }
+}
+
+@media only screen and (min-width: 992px) {
     .login-head {
-        margin: 20px;
         font-size: 5vw;
     }
     .login-form-input {
         width: 70vw;
         padding: 5px;
-        margin: 10px;
         font-size: 2vw;
     }
     .login-butt {
@@ -85,22 +87,19 @@
     .no-account,
     .login-signup {
         padding: 5px;
-        margin: 5px;
-        font-size: 2.5vw; */
-    /* } */
-/* } */
+        font-size: 2.5vw;
+    }
+}
 
 /* Large Devices, Wide Screens */
 
-/* @media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
     .login-head {
-        margin: 15px;
         font-size: 4vw;
     }
     .login-form-input {
         width: 70vw;
         padding: 5px;
-        margin: 10px;
         font-size: 1.5vw;
     }
     .login-butt {
@@ -110,25 +109,19 @@
     .no-account,
     .login-signup {
         padding: 5px;
-        margin: 5px;
         font-size: 1.9vw;
-    } */
-/* } */
+    }
+}
 
 /* Extra-Large Devices & Wide Screens */
 
-/* @media only screen and (min-width: 1500px) {
-    .login-form-wrapper {
-        margin-bottom: 20px;
-    }
+@media only screen and (min-width: 1500px) {
     .login-head {
-        margin: 15px;
         font-size: 2.8vw;
     }
     .login-form-input {
         width: 70vw;
         padding: 5px;
-        margin: 10px;
         font-size: 1vw;
     }
     .login-butt {
@@ -138,7 +131,6 @@
     .no-account,
     .login-signup {
         padding: 5px;
-        margin: 5px;
         font-size: 1.5vw;
-    } */
-/* } */
+    }
+}

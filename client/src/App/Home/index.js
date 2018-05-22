@@ -50,7 +50,7 @@ class Home extends React.Component {
                 <li
                     key={player._id + i} className="one-score">
                     <p className="player">{player.name} </p>
-                    <p className="best-score"> Sets: {player.bestScore}</p>
+                    <p className="best-score"> Sets: <span>{player.bestScore}</span></p>
                 </li>
             );
 
@@ -68,15 +68,15 @@ class Home extends React.Component {
             return (
                 <div className="profile-wrapper">
                     <div className="welcome">
-                        <h2 className="hello">Hello, {isAuthenticated ? <Link className="userName" to="/profile">{this.props.name}</Link> : null}!</h2>
+                        <h2 className="hello">Hello, {isAuthenticated ? <Link className="userName" to="/profile">{this.props.name}</Link> : ""}</h2>
                     </div>
                     <div className="scores-wrapper" >
-                    <div className="scores-container">
-                    <div className="top-title">Leaderboard:</div>                        
-                        <ol className="scores-list">
-                            {presentScores}
-                        </ol>
-                    </div>
+                        <div className="scores-container">
+                            <div className="top-title">Leaderboard:</div>
+                            <ol className="scores-list">
+                                {presentScores}
+                            </ol>
+                        </div>
                     </div>
                 </div>)
         }

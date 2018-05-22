@@ -1,8 +1,6 @@
 .profile-wrapper {
     padding: 20px;
     width: 100vw;
-    margin-bottom: 100px;
-
 }
 
 .welcome {
@@ -10,10 +8,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
-    padding: 70px;
+    padding-bottom: 20px;
     color: #9A5EB2;
-    font-size: 5vw;
+    font-size: 6vw;
+}
+
+.welcome h2 {
+    font-family: "Arcade";
 }
 
 .userName {
@@ -21,6 +22,7 @@
     color: #9A5EB2;
     font-family: "Arcade";
     font-size: 10vw;
+    font-style: italic;
 }
 
 .userName:hover {
@@ -32,41 +34,59 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* padding: 50px; */
 }
 
 .scores-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
-    padding: 50px;
-    padding-left: 100px;
+    padding: 30px;
+    padding-left: 50px;
     background: rgb(107, 156, 107);
     border-radius: 15%;
     width: 80vw;
 }
 
 .top-title {
+    font-family: "Arcade";
     font-weight: bold;
-    /* margin-top: 50px; */
-    /* padding-left: 15px; */
-    /* padding-top: 5px; */
-    font-size: 6vw;
+    font-size: 7vw;
 }
 
 .scores-list {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
 }
 
 .one-score {
-    padding: 20px;
+    padding: 10px;
     font-size: 5vw;
 }
 
 .player {
+    font-family: "Arcade";
     font-weight: bold;
+    font-size: 6.5vw;
+}
+
+.best-score {
+    font-family: "Arcade";
+}
+
+.best-score span {
+    font-family: "Arcade";
+    color: #CD5454;
+    font-size: 1.5em;
+    line-height: 20px;
+}
+
+@media only screen and (min-width: 1200px) {
+    .scores-container {
+        padding-left: 200px;
+        width: 70vw;
+    }
+    .userName {
+        padding: 0px;
+    }
 }
