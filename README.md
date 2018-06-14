@@ -30,3 +30,7 @@ Back-End: [Express](https://expressjs.com/), [Node.js](https://nodejs.org/en/), 
 4) Go defeat them!
 
 Have fun playing our online rendition of SET!
+
+## Acknowledgments
+
+* [Set®](https://www.setgame.com/set)
