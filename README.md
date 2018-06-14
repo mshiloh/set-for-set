@@ -1,11 +1,11 @@
 # SET Online
-This is our online rendition of the popular logic and pattern-matching card game, [Set®] (https://www.setgame.com/set). It's fast-paced, fun, and a great way to keep yourself sharp!
+This is our online rendition of the popular logic and pattern-matching card game, [Set®](https://www.setgame.com/set). It's fast-paced, fun, and a great way to keep yourself sharp!
 
 ## Authors
 
-* **Anik Thomas** - *Initial work* - [AnikThomas](https://github.com/AnikThomas)
+* **Anik Thomas**  - [AnikThomas](https://github.com/AnikThomas)
 
-* **Morgan Ellis** - *Initial work* - [mshiloh](https://github.com/mshiloh)
+* **Morgan Ellis** - [mshiloh](https://github.com/mshiloh)
 
 * **Ilian Kutkurov**  - [Skanarky](https://github.com/Skanarky)
 
